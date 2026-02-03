@@ -1,163 +1,518 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hourly to Salary Calculator</title>
-<meta name="description" content="Convert hourly wage to weekly, monthly and yearly salary. Simple and accurate hourly to salary calculator.">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hourly to Salary Calculator</title>
+  <meta name="description" content="Convert hourly wage to weekly, monthly and yearly salary. Hourly to salary calculator with RU/EN languages."/>
 
-<style>
-body{
-  margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:#f4f6fb;
-  color:#111;
-}
-.container{
-  max-width:720px;
-  margin:auto;
-  padding:20px;
-}
-h1{
-  margin-bottom:6px;
-  font-size:28px;
-}
-p{
-  color:#444;
-  line-height:1.6;
-}
-.card{
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  margin-top:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.05);
-}
-label{
-  display:block;
-  font-weight:600;
-  margin-top:14px;
-}
-input{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  font-size:16px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-button{
-  width:100%;
-  margin-top:18px;
-  padding:14px;
-  font-size:16px;
-  font-weight:700;
-  background:#4f6ef7;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-.results{
-  margin-top:20px;
-  background:#f4f6fb;
-  border-radius:10px;
-  padding:16px;
-}
-.result-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-  font-size:17px;
-}
-.result-row span{
-  color:#444;
-}
-.section{
-  margin-top:40px;
-}
-footer{
-  margin-top:40px;
-  font-size:13px;
-  color:#777;
-}
-</style>
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0A1022;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.62);
+      --muted2:rgba(255,255,255,.48);
+      --accent:#5B8CFF;
+      --accent2:#7C5CFF;
+      --good:#46d17a;
+      --warn:#ffcc66;
+      --bad:#ff5d5d;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --r14:14px;
+      --r18:18px;
+      --r22:22px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 0%, rgba(91,140,255,.22), transparent 60%),
+        radial-gradient(880px 520px at 85% 18%, rgba(124,92,255,.18), transparent 60%),
+        radial-gradient(760px 420px at 50% 88%, rgba(70,209,122,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 56px;}
+    header{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .brand{max-width:72ch}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      width:max-content;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(91,140,255,.14);
+      border:1px solid rgba(91,140,255,.25);
+      color:rgba(255,255,255,.86);
+      font-size:12px;font-weight:800;letter-spacing:.2px;
+    }
+    h1{
+      margin:8px 0 6px;
+      font-size:clamp(22px, 3vw, 34px);
+      letter-spacing:-.3px;
+      line-height:1.12;
+    }
+    .sub{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+    .top-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .seg{
+      display:inline-flex;gap:4px;
+      padding:4px;border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--stroke);
+    }
+    .seg button{
+      border:0;background:transparent;color:var(--muted);
+      padding:7px 10px;border-radius:999px;
+      font-weight:900;font-size:12px;cursor:pointer;
+    }
+    .seg button.active{
+      background:linear-gradient(135deg, rgba(91,140,255,.95), rgba(124,92,255,.95));
+      color:rgba(255,255,255,.96);
+      box-shadow:0 10px 22px rgba(91,140,255,.16);
+    }
+
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;}
+    @media (max-width: 940px){ .grid{grid-template-columns:1fr;} }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--r22);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .inner{padding:14px;}
+    .card h2{margin:0;font-size:16px;letter-spacing:-.2px}
+    .hint{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.45}
+
+    .form{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    @media (max-width: 640px){ .form{grid-template-columns:1fr;} }
+    .field{display:flex;flex-direction:column;gap:6px;}
+    label{font-size:13px;font-weight:900;color:rgba(255,255,255,.86);}
+    input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:var(--r14);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      color:rgba(255,255,255,.92);
+      outline:none;font-size:14px;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    input:focus{
+      border-color:rgba(91,140,255,.55);
+      box-shadow:0 0 0 4px rgba(91,140,255,.16);
+    }
+
+    .actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+    .btn{
+      border:0;cursor:pointer;border-radius:var(--r14);
+      padding:12px 14px;font-weight:950;font-size:14px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      transition:transform .08s ease, filter .2s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{
+      min-width:190px;
+      background:linear-gradient(135deg, rgba(91,140,255,.95), rgba(124,92,255,.95));
+      color:rgba(255,255,255,.96);
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.90);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .kpi{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px;}
+    .pill{
+      padding:12px;border-radius:var(--r18);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+    }
+    .pill .t{color:var(--muted);font-size:12px;font-weight:950;letter-spacing:.2px;}
+    .pill .v{margin-top:4px;font-size:18px;font-weight:980;letter-spacing:-.2px;}
+    .pill small{display:block;margin-top:2px;color:var(--muted2);font-weight:800;font-size:12px;}
+
+    .results{
+      display:grid;grid-template-columns:1fr;
+      gap:10px;margin-top:12px;
+    }
+    .rowline{
+      display:flex;justify-content:space-between;gap:10px;
+      padding:12px;border-radius:var(--r18);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      font-size:14px;
+    }
+    .rowline span{color:var(--muted);font-weight:800;}
+    .rowline b{font-weight:980;}
+
+    .msg{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:var(--r14);
+      border:1px solid rgba(255,204,102,.22);
+      background:rgba(255,204,102,.10);
+      color:rgba(255,255,255,.88);
+      font-size:13px;line-height:1.45;
+      display:none;
+    }
+
+    .seo{
+      padding: 16px 14px 0;
+      color: rgba(255,255,255,.86);
+    }
+    .seo h2{margin:0 0 8px;font-size:18px;letter-spacing:-.2px;}
+    .seo p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.65;}
+    .seo h3{margin:14px 0 8px;font-size:15px;letter-spacing:-.2px;}
+    .seo li{margin:6px 0;color:var(--muted);font-size:14px;line-height:1.6;}
+
+    footer{
+      margin-top:16px;
+      padding:14px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+    }
+    footer a{color:rgba(255,255,255,.72);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.25);}
+  </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="badge" id="badge">💼 Salary tools • Fast • No signup</div>
+        <h1 id="title">Hourly to Salary Calculator</h1>
+        <p class="sub" id="subtitle">
+          Convert your hourly rate into weekly, monthly, and yearly income. Simple, clear, and mobile-friendly.
+        </p>
+      </div>
 
-<h1>Hourly to Salary Calculator</h1>
-<p>
-Convert your hourly wage into weekly, monthly, and yearly salary.
-This calculator helps you understand how much you earn based on your hourly rate.
-</p>
+      <div class="top-actions">
+        <div class="seg" aria-label="Language">
+          <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+          <button id="btnRU" onclick="setLang('ru')">RU</button>
+        </div>
+      </div>
+    </header>
 
-<div class="card">
-<label>Hourly rate ($)</label>
-<input id="hourly" type="number" placeholder="e.g. 20">
+    <div class="grid">
+      <!-- LEFT: Calculator -->
+      <div class="card">
+        <div class="inner">
+          <h2 id="calcTitle">Calculator</h2>
+          <div class="hint" id="calcHint">Enter your rate and schedule. Then press Calculate.</div>
 
-<label>Hours per week</label>
-<input id="hours" type="number" placeholder="e.g. 40">
+          <div class="form">
+            <div class="field">
+              <label id="labHourly" for="hourly">Hourly rate</label>
+              <input id="hourly" type="number" inputmode="decimal" step="0.01" min="0" placeholder="e.g. 20">
+            </div>
 
-<label>Weeks per year</label>
-<input id="weeks" type="number" value="52">
+            <div class="field">
+              <label id="labHours" for="hours">Hours per week</label>
+              <input id="hours" type="number" inputmode="decimal" step="0.1" min="0" placeholder="e.g. 40">
+            </div>
 
-<button onclick="calculate()">Calculate salary</button>
+            <div class="field">
+              <label id="labWeeks" for="weeks">Weeks per year</label>
+              <input id="weeks" type="number" inputmode="decimal" step="0.1" min="0" value="52">
+            </div>
 
-<div id="results" class="results" style="display:none">
-  <div class="result-row"><span>Weekly salary</span><b id="weekly"></b></div>
-  <div class="result-row"><span>Monthly salary</span><b id="monthly"></b></div>
-  <div class="result-row"><span>Yearly salary</span><b id="yearly"></b></div>
-</div>
-</div>
+            <div class="field">
+              <label id="labCurrency" for="currency">Currency symbol</label>
+              <input id="currency" type="text" maxlength="3" value="$" placeholder="$">
+            </div>
+          </div>
 
-<div class="section">
-<h2>How this calculator works</h2>
-<p>
-Enter your hourly wage, how many hours you work per week, and how many weeks you work per year.
-The calculator instantly converts your hourly pay into weekly, monthly, and annual income.
-</p>
+          <div class="actions">
+            <button class="btn primary" id="btnCalc" onclick="calculate()">Calculate</button>
+            <button class="btn secondary" id="btnReset" onclick="resetAll()">Reset</button>
+          </div>
 
-<h2>Frequently asked questions</h2>
-<p><b>Is this calculator accurate?</b><br>
-Yes. It uses standard salary conversion formulas and assumes consistent working hours.
-</p>
+          <div class="msg" id="msg"></div>
 
-<p><b>Does this include taxes?</b><br>
-No. This calculator shows gross income before taxes.
-</p>
+          <div class="hint" style="margin-top:10px" id="tip">
+            Tip: This shows gross income (before taxes).
+          </div>
+        </div>
 
-<p><b>Why is monthly salary different each month?</b><br>
-Monthly salary is calculated by dividing yearly income by 12 for simplicity.
-</p>
-</div>
+        <div class="seo" id="seoBlock"></div>
 
-<footer>
-© Hourly to Salary Calculator • Educational use only
-</footer>
+        <footer>
+          <div>© <span id="year"></span> Salary Tools • <span id="footNote">Estimates only</span></div>
+          <div><a href="#" id="privacyLink" onclick="alert(privacyText[lang]); return false;">Privacy</a></div>
+        </footer>
+      </div>
 
-</div>
+      <!-- RIGHT: Results -->
+      <div class="card">
+        <div class="inner">
+          <h2 id="resTitle">Results</h2>
+          <div class="hint" id="resHint">Your results will appear here after calculation.</div>
+
+          <div class="results" id="results" style="display:none;">
+            <div class="rowline"><span id="rWeekly">Weekly</span><b id="vWeekly">—</b></div>
+            <div class="rowline"><span id="rMonthly">Monthly</span><b id="vMonthly">—</b></div>
+            <div class="rowline"><span id="rYearly">Yearly</span><b id="vYearly">—</b></div>
+          </div>
+
+          <div class="kpi" style="margin-top:12px;">
+            <div class="pill">
+              <div class="t" id="kpiT">Example</div>
+              <div class="v" id="kpiV">$20/hr × 40h/week</div>
+              <small id="kpiS">Shows gross income before taxes.</small>
+            </div>
+          </div>
+
+          <div class="pill" style="margin-top:10px;">
+            <div class="t" id="faqMiniT">Quick note</div>
+            <div class="hint" id="faqMini" style="margin-top:6px;">
+              Monthly salary here is calculated as yearly / 12 for simplicity.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
-function calculate(){
-  const hourly = Number(document.getElementById("hourly").value);
-  const hours = Number(document.getElementById("hours").value);
-  const weeks = Number(document.getElementById("weeks").value);
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  if(hourly<=0 || hours<=0 || weeks<=0) return;
+  let lang = 'en';
 
-  const weekly = hourly * hours;
-  const yearly = weekly * weeks;
-  const monthly = yearly / 12;
+  const text = {
+    en: {
+      badge: "💼 Salary tools • Fast • No signup",
+      title: "Hourly to Salary Calculator",
+      subtitle: "Convert your hourly rate into weekly, monthly, and yearly income. Simple, clear, and mobile-friendly.",
+      calcTitle: "Calculator",
+      calcHint: "Enter your rate and schedule. Then press Calculate.",
+      labHourly: "Hourly rate",
+      labHours: "Hours per week",
+      labWeeks: "Weeks per year",
+      labCurrency: "Currency symbol",
+      btnCalc: "Calculate",
+      btnReset: "Reset",
+      tip: "Tip: This shows gross income (before taxes).",
+      resTitle: "Results",
+      resHint: "Your results will appear here after calculation.",
+      rWeekly: "Weekly",
+      rMonthly: "Monthly",
+      rYearly: "Yearly",
+      msgInvalid: "Please enter valid numbers greater than 0 (hourly rate, hours/week, weeks/year).",
+      footNote: "Estimates only",
+      privacyLink: "Privacy",
+      kpiT: "Example",
+      kpiS: "Shows gross income before taxes.",
+      faqMiniT: "Quick note",
+      faqMini: "Monthly salary here is calculated as yearly / 12 for simplicity.",
+      seo: `
+        <h2>Hourly to Salary Calculator</h2>
+        <p>This tool converts an hourly wage into weekly, monthly, and yearly salary estimates. Enter your hourly rate and work schedule to see your gross income.</p>
+        <h3>How to use</h3>
+        <ul>
+          <li>Enter hourly rate, hours per week, and weeks per year.</li>
+          <li>Click <b>Calculate</b> to see weekly, monthly, and annual totals.</li>
+          <li>Use the currency symbol field to display results in your preferred currency.</li>
+        </ul>
+        <h3>FAQ</h3>
+        <ul>
+          <li><b>Does this include taxes?</b> No — results are gross (before tax).</li>
+          <li><b>Why is monthly salary an estimate?</b> We divide yearly income by 12 for simplicity.</li>
+        </ul>
+      `
+    },
+    ru: {
+      badge: "💼 Зарплатные расчёты • Быстро • Без регистрации",
+      title: "Калькулятор: почасовая → зарплата",
+      subtitle: "Переведи почасовую ставку в доход за неделю, месяц и год. Понятно, быстро и удобно с телефона.",
+      calcTitle: "Калькулятор",
+      calcHint: "Введи ставку и график работы, затем нажми «Рассчитать».",
+      labHourly: "Ставка в час",
+      labHours: "Часов в неделю",
+      labWeeks: "Недель в году",
+      labCurrency: "Символ валюты",
+      btnCalc: "Рассчитать",
+      btnReset: "Сброс",
+      tip: "Подсказка: это доход до налогов (gross).",
+      resTitle: "Результаты",
+      resHint: "Результаты появятся здесь после расчёта.",
+      rWeekly: "За неделю",
+      rMonthly: "За месяц",
+      rYearly: "За год",
+      msgInvalid: "Введи корректные числа больше 0 (ставка, часы/неделю, недели/год).",
+      footNote: "Оценочный расчёт",
+      privacyLink: "Политика",
+      kpiT: "Пример",
+      kpiS: "Показан доход до налогов.",
+      faqMiniT: "Важно",
+      faqMini: "Доход за месяц считается как доход за год / 12 — для простоты.",
+      seo: `
+        <h2>Калькулятор почасовой зарплаты</h2>
+        <p>Инструмент переводит почасовую ставку в доход за неделю, месяц и год. Введи ставку и график работы, чтобы увидеть доход до налогов.</p>
+        <h3>Как пользоваться</h3>
+        <ul>
+          <li>Введи ставку в час, часы в неделю и недели в году.</li>
+          <li>Нажми <b>Рассчитать</b>, чтобы увидеть итог.</li>
+          <li>В поле валюты можно поставить символ «₽», «€», «$» и т.д.</li>
+        </ul>
+        <h3>FAQ</h3>
+        <ul>
+          <li><b>Учитываются налоги?</b> Нет — это доход до налогов.</li>
+          <li><b>Почему месяц — оценка?</b> Для простоты делим годовой доход на 12.</li>
+        </ul>
+      `
+    }
+  };
 
-  document.getElementById("weekly").textContent = "$" + weekly.toFixed(2);
-  document.getElementById("monthly").textContent = "$" + monthly.toFixed(2);
-  document.getElementById("yearly").textContent = "$" + yearly.toFixed(2);
+  const privacyText = {
+    en: "Privacy: This page does not store personal data. Inputs are processed locally in your browser.",
+    ru: "Политика: страница не хранит персональные данные. Все расчёты выполняются локально в вашем браузере."
+  };
 
-  document.getElementById("results").style.display = "block";
-}
+  function setLang(l){
+    lang = l;
+    document.getElementById('btnEN').classList.toggle('active', l==='en');
+    document.getElementById('btnRU').classList.toggle('active', l==='ru');
+
+    const t = text[lang];
+    document.getElementById('badge').textContent = t.badge;
+    document.getElementById('title').textContent = t.title;
+    document.getElementById('subtitle').textContent = t.subtitle;
+
+    document.getElementById('calcTitle').textContent = t.calcTitle;
+    document.getElementById('calcHint').textContent = t.calcHint;
+
+    document.getElementById('labHourly').textContent = t.labHourly;
+    document.getElementById('labHours').textContent = t.labHours;
+    document.getElementById('labWeeks').textContent = t.labWeeks;
+    document.getElementById('labCurrency').textContent = t.labCurrency;
+
+    document.getElementById('btnCalc').textContent = t.btnCalc;
+    document.getElementById('btnReset').textContent = t.btnReset;
+    document.getElementById('tip').textContent = t.tip;
+
+    document.getElementById('resTitle').textContent = t.resTitle;
+    document.getElementById('resHint').textContent = t.resHint;
+
+    document.getElementById('rWeekly').textContent = t.rWeekly;
+    document.getElementById('rMonthly').textContent = t.rMonthly;
+    document.getElementById('rYearly').textContent = t.rYearly;
+
+    document.getElementById('footNote').textContent = t.footNote;
+    document.getElementById('privacyLink').textContent = t.privacyLink;
+
+    document.getElementById('kpiT').textContent = t.kpiT;
+    document.getElementById('kpiS').textContent = t.kpiS;
+    document.getElementById('faqMiniT').textContent = t.faqMiniT;
+    document.getElementById('faqMini').textContent = t.faqMini;
+
+    document.getElementById('seoBlock').innerHTML = t.seo;
+
+    // sync message language if visible
+    const msg = document.getElementById('msg');
+    if (msg.style.display !== 'none' && msg.dataset.kind === 'invalid') {
+      msg.textContent = t.msgInvalid;
+    }
+
+    // If results already shown, re-render them with current currency formatting (no recompute needed)
+    if (document.getElementById('results').style.display !== 'none') {
+      renderLast();
+    }
+  }
+
+  function num(v){
+    return Number(String(v).replace(',', '.'));
+  }
+
+  function money(n, symbol){
+    // simple readable formatting
+    if (!isFinite(n)) return "—";
+    const fixed = n.toFixed(2);
+    // add spaces for thousands
+    const parts = fixed.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return `${symbol}${parts[0]}.${parts[1]}`;
+  }
+
+  let last = null; // {weekly, monthly, yearly}
+
+  function showMsgInvalid(){
+    const msg = document.getElementById('msg');
+    msg.dataset.kind = 'invalid';
+    msg.textContent = text[lang].msgInvalid;
+    msg.style.display = 'block';
+  }
+
+  function hideMsg(){
+    const msg = document.getElementById('msg');
+    msg.style.display = 'none';
+    msg.dataset.kind = '';
+    msg.textContent = '';
+  }
+
+  function calculate(){
+    hideMsg();
+
+    const hourly = num(document.getElementById('hourly').value);
+    const hours = num(document.getElementById('hours').value);
+    const weeks = num(document.getElementById('weeks').value);
+
+    if (!(hourly > 0 && hours > 0 && weeks > 0)) {
+      showMsgInvalid();
+      return;
+    }
+
+    const weekly = hourly * hours;
+    const yearly = weekly * weeks;
+    const monthly = yearly / 12;
+
+    last = { weekly, monthly, yearly };
+    renderLast();
+
+    document.getElementById('results').style.display = 'grid';
+  }
+
+  function renderLast(){
+    if (!last) return;
+    const symbolRaw = (document.getElementById('currency').value || '$').trim();
+    const symbol = symbolRaw.length ? symbolRaw : '$';
+
+    document.getElementById('vWeekly').textContent = money(last.weekly, symbol);
+    document.getElementById('vMonthly').textContent = money(last.monthly, symbol);
+    document.getElementById('vYearly').textContent = money(last.yearly, symbol);
+
+    // update example line
+    const hourly = document.getElementById('hourly').value || "20";
+    const hours = document.getElementById('hours').value || "40";
+    document.getElementById('kpiV').textContent = `${symbol}${hourly}/hr × ${hours}h/week`;
+  }
+
+  function resetAll(){
+    hideMsg();
+    document.getElementById('hourly').value = '';
+    document.getElementById('hours').value = '';
+    document.getElementById('weeks').value = '52';
+    document.getElementById('currency').value = '$';
+    document.getElementById('results').style.display = 'none';
+    last = null;
+  }
+
+  // init
+  setLang('en');
 </script>
-
 </body>
 </html>
