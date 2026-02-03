@@ -484,18 +484,17 @@
     if (e.target && e.target.id === 'currency') sanitizeCurrencyInput();
   });
 
-  function renderExampleOnly(){
-    const symbolRaw = (document.getElementById('currency').value || '$').trim();
-    const symbol = symbolRaw.length ? symbolRaw : '$';
-    const hourly = document.getElementById('hourly').value || "20";
-    const hours = document.getElementById('hours').value || "40";
+function renderExampleOnly(){
+  const symbol = sanitizeCurrencyInput(); // <-- важно: всегда чистим
+  const hourly = document.getElementById('hourly').value || "20";
+  const hours  = document.getElementById('hours').value || "40";
 
-    const pattern = text[lang].kpiPattern || "{sym} {rate} / hr × {hrs} h / week";
-    document.getElementById('kpiV').textContent = pattern
-      .replace("{sym}", symbol)
-      .replace("{rate}", hourly)
-      .replace("{hrs}", hours);
-  }
+  const pattern = text[lang].kpiPattern || "{sym} {rate} / hr × {hrs} h / week";
+  document.getElementById('kpiV').textContent = pattern
+    .replace("{sym}", symbol)
+    .replace("{rate}", hourly)
+    .replace("{hrs}", hours);
+}
 
   function calculate(){
     hideMsg();
@@ -561,14 +560,19 @@ function renderLast(){
   setLang('en');
 
   // keep example updating while typing hourly/hours (nice UX)
-  document.addEventListener('input', (e) => {
-    if (!e.target) return;
-    if (['hourly','hours'].includes(e.target.id)) {
-      // if results shown, re-render fully; otherwise only example
-      if (document.getElementById('results').style.display !== 'none') renderLast();
-      else renderExampleOnly();
-    }
-  });
+document.addEventListener('input', (e) => {
+  if (!e.target) return;
+  if (!['hourly','hours','currency'].includes(e.target.id)) return;
+
+  // Если результаты уже показаны — обновляем всё
+  if (document.getElementById('results').style.display !== 'none') {
+    renderLast();
+  } else {
+    // Иначе — обновляем только пример
+    renderExampleOnly();
+  }
+});
+
 
  document.addEventListener('input', (e) => {
   if (!e.target) return;
