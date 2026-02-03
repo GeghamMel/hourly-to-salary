@@ -467,20 +467,18 @@
     msg.textContent = '';
   }
 
-  function sanitizeCurrencyInput() {
-    const el = document.getElementById('currency');
-    if (!el) return;
+ function sanitizeCurrencyInput() {
+  const el = document.getElementById('currency');
+  if (!el) return '$';
 
-    let v = (el.value || '').trim();
-    // remove digits, dots, commas, spaces
-    v = v.replace(/[0-9.,\s]/g, '');
-    if (!v) v = '$';
-    v = v.slice(0, 3);
-    el.value = v;
+  let v = (el.value || '').trim();
+  v = v.replace(/[0-9.,\s]/g, ''); // убираем цифры/точки/пробелы
+  if (!v) v = '$';
+  v = v.slice(0, 3); // максимум 3 символа (USD/AMD)
+  el.value = v;
 
-    // keep UI consistent
-    if (typeof renderLast === 'function') renderLast();
-  }
+  return v;
+}
 
   document.addEventListener('input', (e) => {
     if (e.target && e.target.id === 'currency') sanitizeCurrencyInput();
@@ -521,29 +519,30 @@
     document.getElementById('results').style.display = 'grid';
   }
 
-  function renderLast(){
-    // Always sanitize currency (prevents $30 bug)
-    sanitizeCurrencyInput();
+function renderLast(){
+  const symbol = sanitizeCurrencyInput(); // просто берём очищенный символ
 
-    const symbolRaw = (document.getElementById('currency').value || '$').trim();
-    const symbol = symbolRaw.length ? symbolRaw : '$';
-
-    // Update results if available
-    if (last) {
-      document.getElementById('vWeekly').textContent = money(last.weekly, symbol);
-      document.getElementById('vMonthly').textContent = money(last.monthly, symbol);
-      document.getElementById('vYearly').textContent = money(last.yearly, symbol);
-    }
-
-    // Update example line (localized)
-    const hourly = document.getElementById('hourly').value || "20";
-    const hours = document.getElementById('hours').value || "40";
-    const pattern = text[lang].kpiPattern || "{sym} {rate} / hr × {hrs} h / week";
-    document.getElementById('kpiV').textContent = pattern
-      .replace("{sym}", symbol)
-      .replace("{rate}", hourly)
-      .replace("{hrs}", hours);
+  // результаты
+  if (last) {
+    document.getElementById('vWeekly').textContent  = money(last.weekly, symbol);
+    document.getElementById('vMonthly').textContent = money(last.monthly, symbol);
+    document.getElementById('vYearly').textContent  = money(last.yearly, symbol);
   }
+
+  // пример (локализованный)
+  const hourly = document.getElementById('hourly').value || "20";
+  const hours  = document.getElementById('hours').value || "40";
+
+  const pattern = (text[lang] && text[lang].kpiPattern)
+    ? text[lang].kpiPattern
+    : "{sym} {rate} / hr × {hrs} h / week";
+
+  document.getElementById('kpiV').textContent = pattern
+    .replace("{sym}", symbol)
+    .replace("{rate}", hourly)
+    .replace("{hrs}", hours);
+}
+
 
   function resetAll(){
     hideMsg();
@@ -570,6 +569,26 @@
       else renderExampleOnly();
     }
   });
+
+ document.addEventListener('input', (e) => {
+  if (!e.target) return;
+  if (['hourly','hours','currency'].includes(e.target.id)) {
+    if (document.getElementById('results').style.display !== 'none') renderLast();
+    else {
+      // обновим хотя бы пример
+      const symbol = sanitizeCurrencyInput();
+      const hourly = document.getElementById('hourly').value || "20";
+      const hours  = document.getElementById('hours').value || "40";
+      const pattern = text[lang].kpiPattern || "{sym} {rate} / hr × {hrs} h / week";
+      document.getElementById('kpiV').textContent = pattern
+        .replace("{sym}", symbol)
+        .replace("{rate}", hourly)
+        .replace("{hrs}", hours);
+    }
+  }
+});
+
+
 </script>
 
 </body>
