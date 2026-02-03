@@ -574,25 +574,6 @@ document.addEventListener('input', (e) => {
 });
 
 
- document.addEventListener('input', (e) => {
-  if (!e.target) return;
-  if (['hourly','hours','currency'].includes(e.target.id)) {
-    if (document.getElementById('results').style.display !== 'none') renderLast();
-    else {
-      // обновим хотя бы пример
-      const symbol = sanitizeCurrencyInput();
-      const hourly = document.getElementById('hourly').value || "20";
-      const hours  = document.getElementById('hours').value || "40";
-      const pattern = text[lang].kpiPattern || "{sym} {rate} / hr × {hrs} h / week";
-      document.getElementById('kpiV').textContent = pattern
-        .replace("{sym}", symbol)
-        .replace("{rate}", hourly)
-        .replace("{hrs}", hours);
-    }
-  }
-});
-
-
 </script>
 
 </body>
