@@ -480,10 +480,6 @@
   return v;
 }
 
-  document.addEventListener('input', (e) => {
-    if (e.target && e.target.id === 'currency') sanitizeCurrencyInput();
-  });
-
 function renderExampleOnly(){
   const symbol = sanitizeCurrencyInput(); // <-- важно: всегда чистим
   const hourly = document.getElementById('hourly').value || "20";
@@ -572,6 +568,17 @@ document.addEventListener('input', (e) => {
     renderExampleOnly();
   }
 });
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter') return;
+  const id = document.activeElement && document.activeElement.id;
+  if (['hourly','hours','weeks','currency'].includes(id)) {
+    e.preventDefault();
+    calculate();
+  }
+});
+
+
 
 
 </script>
