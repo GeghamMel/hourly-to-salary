@@ -467,17 +467,24 @@
     msg.textContent = '';
   }
 
- function sanitizeCurrencyInput() {
+function sanitizeCurrencyInput(forceDefault = false) {
   const el = document.getElementById('currency');
   if (!el) return '$';
 
   let v = (el.value || '').trim();
-  v = v.replace(/[0-9.,\s]/g, ''); // убираем цифры/точки/пробелы
-  if (!v) v = '$';
-  v = v.slice(0, 3); // максимум 3 символа (USD/AMD)
+
+  // убираем цифры, точки, пробелы
+  v = v.replace(/[0-9.,\s]/g, '');
+
+  // 👉 ТОЛЬКО если forceDefault === true
+  if (!v && forceDefault) {
+    v = '$';
+  }
+
+  v = v.slice(0, 3);
   el.value = v;
 
-  return v;
+  return v || '';
 }
 
 function renderExampleOnly(){
