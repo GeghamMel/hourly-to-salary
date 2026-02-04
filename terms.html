@@ -14,17 +14,41 @@ body{margin:0;font-family:system-ui;background:#070A12;color:#fff}
 
 <body>
 <div class="wrap">
+<div>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
+
 <div class="card">
-<h1>Terms of Service</h1>
-
-<p>This website provides salary calculation tools for informational purposes only.</p>
-<p>Results are estimates and may not reflect actual earnings.</p>
-<p>We are not responsible for decisions made based on this information.</p>
-<p>Use of this site is at your own risk.</p>
-
-<p>By using this website, you agree to these terms.</p>
+<h1 id="title"></h1>
+<div id="text"></div>
 </div>
 </div>
+
+<script>
+const t={
+en:{
+title:"Terms of Service",
+text:`
+<p>This website provides salary calculations for informational purposes only.</p>
+<p>Results are estimates and may differ from real income.</p>
+<p>The site owner is not responsible for decisions based on this data.</p>
+<p>By using this website, you agree to these terms.</p>`
+},
+ru:{
+title:"Пользовательское соглашение",
+text:`
+<p>Сайт предоставляет расчёты заработка в ознакомительных целях.</p>
+<p>Результаты являются приблизительными.</p>
+<p>Администрация не несёт ответственности за принятые решения.</p>
+<p>Используя сайт, вы соглашаетесь с условиями.</p>`
+}
+};
+function setLang(l){
+document.getElementById('title').innerText=t[l].title;
+document.getElementById('text').innerHTML=t[l].text;
+}
+setLang('en');
+</script>
 </body>
 </html>
-
