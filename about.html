@@ -14,16 +14,39 @@ body{margin:0;font-family:system-ui;background:#070A12;color:#fff}
 
 <body>
 <div class="wrap">
+<div>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
+
 <div class="card">
-<h1>About Salary Tools</h1>
-
-<p>Salary Tools is a simple online calculator designed to help users convert hourly wages into weekly, monthly, and yearly income.</p>
-
-<p>The project focuses on clarity, speed, and privacy.</p>
-
-<p>No registration. No tracking. Just useful tools.</p>
+<h1 id="title"></h1>
+<div id="text"></div>
 </div>
 </div>
+
+<script>
+const t={
+en:{
+title:"About Salary Tools",
+text:`
+<p>Salary Tools is a simple online calculator.</p>
+<p>It helps convert hourly wages into weekly, monthly, and yearly income.</p>
+<p>The project focuses on simplicity, speed, and privacy.</p>`
+},
+ru:{
+title:"О проекте Salary Tools",
+text:`
+<p>Salary Tools — это простой онлайн-калькулятор.</p>
+<p>Он помогает перевести почасовую ставку в доход за неделю, месяц и год.</p>
+<p>Проект создан для удобства, скорости и конфиденциальности.</p>`
+}
+};
+function setLang(l){
+document.getElementById('title').innerText=t[l].title;
+document.getElementById('text').innerHTML=t[l].text;
+}
+setLang('en');
+</script>
 </body>
 </html>
-
