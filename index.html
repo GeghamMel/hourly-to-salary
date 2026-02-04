@@ -555,19 +555,19 @@ function renderLast(){
   sanitizeCurrencyInput();
   setLang('en');
 
-  // keep example updating while typing hourly/hours (nice UX)
 document.addEventListener('input', (e) => {
   if (!e.target) return;
-  if (!['hourly','hours','currency'].includes(e.target.id)) return;
+  if (!['hourly','hours','weeks','currency'].includes(e.target.id)) return;
 
-  // Если результаты уже показаны — обновляем всё
   if (document.getElementById('results').style.display !== 'none') {
-    renderLast();
+    // если результаты показаны — пересчитаем
+    // (важно: обновим last через calculate, иначе weekly/yearly не меняются при weeks)
+    calculate();
   } else {
-    // Иначе — обновляем только пример
     renderExampleOnly();
   }
 });
+
 
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter') return;
