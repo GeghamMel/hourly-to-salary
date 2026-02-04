@@ -501,6 +501,8 @@ function renderExampleOnly(){
 
   function calculate(){
     hideMsg();
+sanitizeCurrencyInput(true); // 👈 подставит $ если пусто
+
 
     const hourly = num(document.getElementById('hourly').value);
     const hours = num(document.getElementById('hours').value);
