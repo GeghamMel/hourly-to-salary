@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://geghammel.github.io/hourly-to-salary/sitemap.xml
-
+Sitemap: https://hourlysalarycalc.com/sitemap.xml
