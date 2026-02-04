@@ -501,7 +501,7 @@ function renderExampleOnly(){
 
   function calculate(){
     hideMsg();
-sanitizeCurrencyInput(true); // 👈 подставит $ если пусто
+    sanitizeCurrencyInput(true); // 👈 подставит $ если пусто
 
 
     const hourly = num(document.getElementById('hourly').value);
@@ -524,7 +524,7 @@ sanitizeCurrencyInput(true); // 👈 подставит $ если пусто
   }
 
 function renderLast(){
-  const symbol = sanitizeCurrencyInput(); // просто берём очищенный символ
+  const symbol = sanitizeCurrencyInput(true);
 
   // результаты
   if (last) {
