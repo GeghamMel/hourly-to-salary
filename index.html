@@ -434,6 +434,10 @@
 
     document.getElementById('seoBlock').innerHTML = t.seo;
 
+    document.getElementById('linkAbout').textContent = t.linkAbout;
+    document.getElementById('linkTerms').textContent = t.linkTerms;
+
+
     // sync message language if visible
     const msg = document.getElementById('msg');
     if (msg.style.display !== 'none' && msg.dataset.kind === 'invalid') {
