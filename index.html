@@ -257,8 +257,8 @@
         <footer>
           <div>© <span id="year"></span> Salary Tools • <span id="footNote">Estimates only</span></div>
           <div><a href="privacy.html" id="privacyLink"></a></div>
-          <div> <a href="about.html">About</a>
-                <a href="terms.html">Terms</a>
+          <div> <a href="about.html" id="linkAbout">About</a>
+                <a href="terms.html" id="linkTerms">Terms</a>
         </div>
         </footer>
       </div>
@@ -301,6 +301,8 @@
 
   const text = {
     en: {
+      linkAbout: "About",
+      linkTerms: "Terms",
       badge: "💼 Salary tools • Fast • No signup",
       title: "Hourly to Salary Calculator",
       subtitle: "Convert your hourly rate into weekly, monthly, and yearly income. Simple, clear, and mobile-friendly.",
@@ -343,6 +345,8 @@
       `
     },
     ru: {
+      linkAbout: "О сайте",
+      linkTerms: "Условия",
       badge: "💼 Зарплатные расчёты • Быстро • Без регистрации",
       title: "Калькулятор: почасовая → зарплата",
       subtitle: "Переведи почасовую ставку в доход за неделю, месяц и год. Понятно, быстро и удобно с телефона.",
