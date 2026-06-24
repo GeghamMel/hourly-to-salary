@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Hourly Salary Calc</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a>
+  <div class="header-lang" id="headerLang"><button class="active" id="headerLangEN">EN</button><button id="headerLangRU">RU</button></div>
+  <button class="hamburger" aria-label="Open menu" id="hamburger"><span></span><span></span><span></span></button>
+  <nav class="site-nav" id="siteNav">
+    <a href="/" data-en="Calculator" data-ru="Калькулятор">Calculator</a>
+    <a href="blog/" data-en="Blog" data-ru="Блог">Blog</a>
+    <a href="about.html" data-en="About" data-ru="О сайте">About</a>
+    <a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
+    <div class="lang-toggle"><button class="active" id="langEN">EN</button><button id="langRU">RU</button></div>
+  </nav>
+</div></header>
+<main><div class="static-body"><a href="/" class="back-link" data-en="← Back to Calculator" data-ru="← На калькулятор">← Back to Calculator</a>
+<h1 data-en="About Hourly Salary Calc" data-ru="О сайте Hourly Salary Calc">About Hourly Salary Calc</h1>
+<p class="intro" data-en="A free, straightforward tool for converting hourly wages to annual salaries — no signup, no ads in the calculator, no hidden fees." data-ru="Бесплатный инструмент для перевода почасовой ставки в годовую зарплату — без регистрации и скрытых платежей.">A free, straightforward tool for converting hourly wages to annual salaries.</p>
+<div id="content-en">
+<h2>What this tool does</h2>
+<p>Hourly Salary Calc converts your hourly wage into daily, weekly, monthly, and yearly income. It supports overtime pay, custom work schedules, and multiple currencies — giving you a complete picture of your compensation in seconds.</p>
+<h2>Who it's for</h2>
+<ul>
+<li>Job seekers comparing hourly vs. salaried positions</li>
+<li>Freelancers setting their rates</li>
+<li>Employees evaluating a job offer or raise</li>
+<li>Anyone who wants to understand their annual income better</li>
+</ul>
+<h2>Important disclaimer</h2>
+<p>All results show <strong>gross income before taxes and deductions</strong>. Actual take-home pay depends on your country, tax bracket, benefits, and other factors. This tool does not provide financial or tax advice.</p>
+<h2>Contact</h2>
+<p>Questions or suggestions? Visit our <a href="contact.html">contact page</a>.</p>
+</div>
+<div id="content-ru" style="display:none;">
+<h2>Что делает этот инструмент</h2>
+<p>Hourly Salary Calc переводит вашу почасовую ставку в суточный, еженедельный, ежемесячный и годовой доход. Поддерживает сверхурочные, гибкий график и несколько валют.</p>
+<h2>Для кого</h2>
+<ul>
+<li>Соискателям, сравнивающим почасовую и фиксированную зарплату</li>
+<li>Фрилансерам при установке ставок</li>
+<li>Сотрудникам при оценке предложения о работе</li>
+<li>Всем, кто хочет лучше понять свой годовой доход</li>
+</ul>
+<h2>Важное предупреждение</h2>
+<p>Все результаты показывают <strong>валовый доход до вычета налогов</strong>. Реальный доход на руки зависит от страны, налоговой ставки и других факторов. Сайт не даёт финансовых или налоговых консультаций.</p>
+<h2>Контакт</h2>
+<p>Вопросы или предложения? Перейдите на нашу <a href="contact.html">страницу контактов</a>.</p>
+</div></div></main>
+<footer class="site-footer"><div class="footer-inner">
+  <div class="footer-brand"><a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a><p data-en="Free salary calculator." data-ru="Бесплатный калькулятор зарплаты.">Free salary calculator.</p></div>
+  <div class="footer-links"><a href="about.html" data-en="About" data-ru="О сайте">About</a><a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a><a href="privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Privacy Policy</a><a href="terms.html" data-en="Terms of Use" data-ru="Условия использования">Terms of Use</a></div>
+</div><div class="footer-bottom"><span>© <span id="year"></span> hourlysalarycalc.com</span></div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('hamburger').addEventListener('click',function(){document.getElementById('siteNav').classList.toggle('open');});
+function applyLang(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-en]').forEach(function(el){var t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;});var enC=document.getElementById('content-en'),ruC=document.getElementById('content-ru');if(enC&&ruC){enC.style.display=lang==='ru'?'none':'block';ruC.style.display=lang==='ru'?'block':'none';}localStorage.setItem('lang',lang);}
+document.getElementById('langEN').addEventListener('click',function(){this.classList.add('active');document.getElementById('langRU').classList.remove('active');applyLang('en');});
+document.getElementById('langRU').addEventListener('click',function(){this.classList.add('active');document.getElementById('langEN').classList.remove('active');applyLang('ru');});
+var sl=localStorage.getItem('lang');if(sl==='ru'){document.getElementById('langRU').classList.add('active');document.getElementById('langEN').classList.remove('active');applyLang('ru');}
+(function(){var hEN=document.getElementById('headerLangEN'),hRU=document.getElementById('headerLangRU');if(sl==='ru'){hRU.classList.add('active');hEN.classList.remove('active');}hEN.addEventListener('click',function(){document.getElementById('langEN').click();hEN.classList.add('active');hRU.classList.remove('active');});hRU.addEventListener('click',function(){document.getElementById('langRU').click();hRU.classList.add('active');hEN.classList.remove('active');});})();
+</script>
+</body></html>

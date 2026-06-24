@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hourly to Salary Calculator — Convert Hourly Rate to Annual Salary</title>
+  <meta name="description" content="Convert your hourly wage to weekly, monthly, and yearly salary instantly. Free hourly to salary calculator with overtime, taxes, and multiple currencies." />
+  <meta name="keywords" content="hourly to salary calculator, hourly wage calculator, annual salary calculator, convert hourly to yearly" />
+  <link rel="canonical" href="https://hourlysalarycalc.com/" />
+  <meta property="og:title" content="Hourly to Salary Calculator" />
+  <meta property="og:description" content="Convert your hourly rate to weekly, monthly and yearly salary. Free, instant, no signup." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hourlysalarycalc.com/" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Hourly to Salary Calculator","url":"https://hourlysalarycalc.com/","description":"Free calculator to convert hourly wage to annual salary.","applicationCategory":"FinanceApplication","operatingSystem":"All"}
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a>
+    <div class="header-lang" id="headerLang">
+      <button class="active" id="headerLangEN">EN</button>
+      <button id="headerLangRU">RU</button>
+    </div>
+    <button class="hamburger" aria-label="Open menu" id="hamburger"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="siteNav">
+      <a href="/" class="active" data-en="Calculator" data-ru="Калькулятор">Calculator</a>
+      <a href="blog/" data-en="Blog" data-ru="Блог">Blog</a>
+      <a href="about.html" data-en="About" data-ru="О сайте">About</a>
+      <a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
+      <div class="lang-toggle">
+        <button class="active" id="langEN">EN</button>
+        <button id="langRU">RU</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-en="Free Salary Calculator" data-ru="Бесплатный калькулятор зарплаты">Free Salary Calculator</div>
+    <h1 data-en="Convert your hourly rate to <em>annual salary</em> instantly" data-ru="Переведите почасовую ставку в <em>годовую зарплату</em> мгновенно">Convert your hourly rate to <em>annual salary</em> instantly</h1>
+    <p data-en="Get your weekly, monthly, and yearly income in seconds. Supports overtime, multiple currencies, and custom schedules." data-ru="Получите еженедельный, ежемесячный и годовой доход за секунды. Поддержка сверхурочных, разных валют и гибкого графика.">Get your weekly, monthly, and yearly income in seconds. Supports overtime, multiple currencies, and custom schedules.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>4</strong><span data-en="Pay periods" data-ru="Периоды оплаты">Pay periods</span></div>
+      <div class="hero-stat"><strong>5+</strong><span data-en="Currencies" data-ru="Валют">Currencies</span></div>
+      <div class="hero-stat"><strong>100%</strong><span data-en="Free, no signup" data-ru="Бесплатно">Free, no signup</span></div>
+    </div>
+    <a href="#calculator" class="btn-scroll" data-en="Calculate My Salary ↓" data-ru="Рассчитать зарплату ↓">Calculate My Salary ↓</a>
+  </div>
+</section>
+
+<section class="calc-section" id="calculator">
+  <div class="container">
+    <div class="section-label" data-en="Salary Calculator" data-ru="Калькулятор зарплаты">Salary Calculator</div>
+    <h2 class="section-title" data-en="Enter your work details" data-ru="Введите данные о работе">Enter your work details</h2>
+    <p class="section-sub" data-en="Fill in your hourly rate and schedule to get your complete salary breakdown." data-ru="Укажите почасовую ставку и график, чтобы получить полную разбивку зарплаты.">Fill in your hourly rate and schedule to get your complete salary breakdown.</p>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div class="field">
+          <label for="hourlyRate" data-en="Hourly rate" data-ru="Почасовая ставка">Hourly rate</label>
+          <input type="number" id="hourlyRate" min="0" step="0.01" placeholder="e.g. 25" />
+        </div>
+        <div class="field">
+          <label for="currency" data-en="Currency" data-ru="Валюта">Currency</label>
+          <select id="currency">
+            <option value="$">$ — US Dollar</option>
+            <option value="€">€ — Euro</option>
+            <option value="£">£ — British Pound</option>
+            <option value="₽">₽ — Russian Ruble</option>
+            <option value="₴">₴ — Ukrainian Hryvnia</option>
+            <option value="¥">¥ — Japanese Yen</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hoursPerWeek" data-en="Hours per week" data-ru="Часов в неделю">Hours per week</label>
+          <input type="number" id="hoursPerWeek" min="1" max="168" placeholder="e.g. 40" value="40" />
+        </div>
+        <div class="field">
+          <label for="weeksPerYear" data-en="Weeks per year" data-ru="Недель в году">Weeks per year</label>
+          <input type="number" id="weeksPerYear" min="1" max="52" placeholder="e.g. 52" value="52" />
+        </div>
+        <div class="field">
+          <label for="overtimeHours" data-en="Overtime hours/week (optional)" data-ru="Сверхурочные ч/нед (опционально)">Overtime hours/week (optional)</label>
+          <input type="number" id="overtimeHours" min="0" max="40" placeholder="e.g. 5" value="0" />
+        </div>
+        <div class="field">
+          <label for="overtimeMultiplier" data-en="Overtime rate multiplier" data-ru="Коэффициент сверхурочных">Overtime rate multiplier</label>
+          <select id="overtimeMultiplier">
+            <option value="1.5" selected>1.5× (standard)</option>
+            <option value="2.0">2.0× (double time)</option>
+            <option value="1.25">1.25×</option>
+            <option value="1.0">1.0× (same rate)</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-calc" id="calcBtn" data-en="Calculate Salary →" data-ru="Рассчитать зарплату →">Calculate Salary →</button>
+      <p id="calcError" style="color:#dc2626;font-size:0.85rem;margin-top:10px;display:none;" data-en="Please enter your hourly rate." data-ru="Пожалуйста, введите почасовую ставку.">Please enter your hourly rate.</p>
+
+      <div class="calc-results" id="calcResults">
+        <p class="results-headline" id="resultsHeadline">Your salary breakdown:</p>
+
+        <div class="salary-display">
+          <div class="salary-number" id="yearlyDisplay">—</div>
+          <div class="salary-label" data-en="per year (gross)" data-ru="в год (до налогов)">per year (gross)</div>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <div class="result-value" id="dailyDisplay">—</div>
+            <div class="result-name" data-en="Per day" data-ru="В день">Per day</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value" id="weeklyDisplay">—</div>
+            <div class="result-name" data-en="Per week" data-ru="В неделю">Per week</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value" id="monthlyDisplay">—</div>
+            <div class="result-name" data-en="Per month" data-ru="В месяц">Per month</div>
+          </div>
+        </div>
+
+        <div id="overtimeRow" style="display:none; background:var(--gold-pale); border-radius:8px; padding:14px 16px; margin-bottom:16px; font-size:0.88rem;">
+          <strong id="overtimeLabel">Overtime included:</strong> <span id="overtimeAmount">—</span> <span data-en="extra per year" data-ru="доп. в год">extra per year</span>
+        </div>
+
+        <div class="result-note" id="resultNote">These figures represent gross income before taxes and deductions. Actual take-home pay will vary by country, tax bracket, and deductions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="ad-slot ad-slot--leaderboard"></div></div>
+
+<section class="how-section">
+  <div class="container">
+    <div class="section-label" data-en="How it works" data-ru="Как работает">How it works</div>
+    <h2 class="section-title" data-en="Simple salary conversion" data-ru="Простой расчёт зарплаты">Simple salary conversion</h2>
+    <p class="section-sub" data-en="Understanding how your hourly rate translates to annual income in 3 steps." data-ru="Как ваша почасовая ставка переводится в годовой доход — 3 шага.">Understanding how your hourly rate translates to annual income in 3 steps.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 data-en="Enter hourly rate" data-ru="Введите ставку">Enter hourly rate</h3>
+        <p data-en="Input your hourly wage, select your currency, and specify how many hours you work per week." data-ru="Введите почасовую ставку, выберите валюту и укажите количество рабочих часов в неделю.">Input your hourly wage, select your currency, and specify how many hours you work per week.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 data-en="Set your schedule" data-ru="Укажите график">Set your schedule</h3>
+        <p data-en="Choose how many weeks per year you work and add any overtime hours and their multiplier." data-ru="Укажите количество рабочих недель в году и добавьте сверхурочные часы с коэффициентом.">Choose how many weeks per year you work and add any overtime hours and their multiplier.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 data-en="Get full breakdown" data-ru="Получите разбивку">Get full breakdown</h3>
+        <p data-en="Instantly see your daily, weekly, monthly, and yearly gross income including overtime earnings." data-ru="Мгновенно увидите суточный, недельный, месячный и годовой валовый доход включая сверхурочные.">Instantly see your daily, weekly, monthly, and yearly gross income including overtime earnings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="section-label" data-en="Learn more" data-ru="Статьи">Learn more</div>
+    <h2 class="section-title" data-en="Salary guides" data-ru="Гиды по зарплате">Salary guides</h2>
+    <p class="section-sub" data-en="Practical articles to help you understand and negotiate your compensation." data-ru="Практические статьи о зарплате, переговорах и доходах.">Practical articles to help you understand and negotiate your compensation.</p>
+    <div class="blog-grid">
+      <a href="blog/hourly-to-salary.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-body">
+          <span class="blog-tag" data-en="Salary" data-ru="Зарплата">Salary</span>
+          <h3 data-en="How to Convert Hourly Rate to Annual Salary" data-ru="Как перевести почасовую ставку в годовую зарплату">How to Convert Hourly Rate to Annual Salary</h3>
+          <p data-en="The complete guide to salary conversion — formulas, examples, and what to watch out for." data-ru="Полное руководство по расчёту зарплаты — формулы, примеры и подводные камни.">The complete guide to salary conversion — formulas, examples, and what to watch out for.</p>
+          <span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span>
+        </div>
+      </a>
+      <a href="blog/negotiate-salary.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-body">
+          <span class="blog-tag" data-en="Negotiation" data-ru="Переговоры">Negotiation</span>
+          <h3 data-en="How to Negotiate Your Salary: A Practical Guide" data-ru="Как договориться о зарплате: практическое руководство">How to Negotiate Your Salary: A Practical Guide</h3>
+          <p data-en="Step-by-step advice on negotiating a higher salary or hourly rate at your next job offer." data-ru="Пошаговые советы по переговорам о повышении зарплаты при следующем предложении работы.">Step-by-step advice on negotiating a higher salary or hourly rate.</p>
+          <span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span>
+        </div>
+      </a>
+      <a href="blog/freelance-hourly-rate.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-body">
+          <span class="blog-tag" data-en="Freelance" data-ru="Фриланс">Freelance</span>
+          <h3 data-en="How to Set Your Freelance Hourly Rate" data-ru="Как установить почасовую ставку фрилансера">How to Set Your Freelance Hourly Rate</h3>
+          <p data-en="Calculate a freelance rate that covers your expenses, taxes, and desired income." data-ru="Рассчитайте ставку фрилансера, которая покрывает расходы, налоги и желаемый доход.">Calculate a freelance rate that covers expenses, taxes, and desired income.</p>
+          <span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span>
+        </div>
+      </a>
+      <a href="blog/gross-vs-net-salary.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-body">
+          <span class="blog-tag" data-en="Taxes" data-ru="Налоги">Taxes</span>
+          <h3 data-en="Gross vs Net Salary: What's the Difference?" data-ru="Зарплата до и после налогов: в чём разница?">Gross vs Net Salary: What's the Difference?</h3>
+          <p data-en="Understand the difference between gross and net pay, and how taxes and deductions affect your take-home." data-ru="Разница между зарплатой до и после налогов, и как удержания влияют на ваш доход на руки.">Understand the difference between gross and net pay.</p>
+          <span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span>
+        </div>
+      </a>
+      <a href="blog/overtime-pay.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-body">
+          <span class="blog-tag" data-en="Overtime" data-ru="Сверхурочные">Overtime</span>
+          <h3 data-en="How Overtime Pay Works: Rules and Calculations" data-ru="Как работают сверхурочные: правила и расчёты">How Overtime Pay Works: Rules and Calculations</h3>
+          <p data-en="Everything you need to know about overtime rates, eligibility, and how to calculate your overtime earnings." data-ru="Всё о ставках сверхурочных, праве на них и расчёте заработка.">Everything about overtime rates, eligibility, and calculations.</p>
+          <span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="section-label" data-en="Common questions" data-ru="Частые вопросы">Common questions</div>
+    <h2 class="section-title" data-en="Frequently asked questions" data-ru="Часто задаваемые вопросы">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" data-en="How do I convert hourly to annual salary?" data-ru="Как перевести почасовую ставку в годовую зарплату?">How do I convert hourly to annual salary?</button>
+        <div class="faq-answer" data-en="Multiply your hourly rate by the number of hours you work per week, then multiply by the number of weeks you work per year. For a standard full-time schedule: hourly rate × 40 hours × 52 weeks = annual salary." data-ru="Умножьте почасовую ставку на количество рабочих часов в неделю, затем на количество рабочих недель в году. Для стандартного полного рабочего времени: ставка × 40 часов × 52 недели = годовая зарплата.">Multiply your hourly rate by the number of hours you work per week, then multiply by the number of weeks you work per year. For a standard full-time schedule: hourly rate × 40 hours × 52 weeks = annual salary.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-en="Does the calculator include taxes?" data-ru="Учитывает ли калькулятор налоги?">Does the calculator include taxes?</button>
+        <div class="faq-answer" data-en="No — the results show gross income (before taxes). Tax rates vary significantly by country, state, and personal situation. We recommend consulting a tax professional or using a country-specific tax calculator for net pay estimates." data-ru="Нет — результаты показывают валовый доход (до налогов). Налоговые ставки сильно различаются по странам, регионам и личным обстоятельствам. Для расчёта дохода на руки рекомендуем проконсультироваться с налоговым специалистом.">No — the results show gross income (before taxes). Tax rates vary significantly by country, state, and personal situation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-en="How many weeks per year should I use?" data-ru="Сколько недель в году использовать?">How many weeks per year should I use?</button>
+        <div class="faq-answer" data-en="A standard full-time employee in most countries works 52 weeks per year. If you take unpaid leave or work seasonally, reduce the number accordingly. For example, 2 weeks unpaid leave = 50 working weeks." data-ru="Штатный работник в большинстве стран работает 52 недели в году. Если вы берёте неоплачиваемый отпуск или работаете сезонно, уменьшите это число. Например, 2 недели неоплачиваемого отпуска = 50 рабочих недель.">A standard full-time employee works 52 weeks per year. If you take unpaid leave, reduce accordingly.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-en="What is the standard overtime rate?" data-ru="Какая стандартная ставка сверхурочных?">What is the standard overtime rate?</button>
+        <div class="faq-answer" data-en="In most countries, the standard overtime rate is 1.5× your regular hourly rate (time and a half). Some employers pay 2× (double time) for work on weekends or holidays. The exact rules depend on your country's labour laws and employment contract." data-ru="В большинстве стран стандартная ставка сверхурочных составляет 1,5× от обычной почасовой ставки. Некоторые работодатели платят 2× за работу в выходные или праздники. Точные правила зависят от трудового законодательства и трудового договора.">In most countries, the standard overtime rate is 1.5× your regular hourly rate (time and a half).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a>
+      <p data-en="Free salary calculator. Results show gross income before taxes." data-ru="Бесплатный калькулятор зарплаты. Результаты показывают доход до налогов.">Free salary calculator. Results show gross income before taxes.</p>
+    </div>
+    <div class="footer-links">
+      <a href="about.html" data-en="About" data-ru="О сайте">About</a>
+      <a href="blog/" data-en="Blog" data-ru="Блог">Blog</a>
+      <a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
+      <a href="privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Privacy Policy</a>
+      <a href="terms.html" data-en="Terms of Use" data-ru="Условия использования">Terms of Use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> hourlysalarycalc.com</span>
+    <span data-en="Estimates only — not financial advice." data-ru="Только оценки — не финансовый совет.">Estimates only — not financial advice.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('hamburger').addEventListener('click', function() { document.getElementById('siteNav').classList.toggle('open'); });
+
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const item = this.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+let currentLang = 'en';
+function applyLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var t = el.getAttribute('data-' + lang);
+    if (!t) return;
+    if (el.querySelector('em') || t.includes('<')) el.innerHTML = t;
+    else el.textContent = t;
+  });
+  document.querySelectorAll('select option[data-en]').forEach(function(opt) {
+    var t = opt.getAttribute('data-' + lang); if (t) opt.textContent = t;
+  });
+  if (document.getElementById('calcResults').classList.contains('visible')) updateResultLabels();
+  localStorage.setItem('lang', lang);
+}
+document.getElementById('langEN').addEventListener('click', function() { this.classList.add('active'); document.getElementById('langRU').classList.remove('active'); applyLang('en'); });
+document.getElementById('langRU').addEventListener('click', function() { this.classList.add('active'); document.getElementById('langEN').classList.remove('active'); applyLang('ru'); });
+var sl = localStorage.getItem('lang');
+if (sl === 'ru') { document.getElementById('langRU').classList.add('active'); document.getElementById('langEN').classList.remove('active'); applyLang('ru'); }
+(function(){
+  var hEN=document.getElementById('headerLangEN'), hRU=document.getElementById('headerLangRU');
+  if (sl==='ru') { hRU.classList.add('active'); hEN.classList.remove('active'); }
+  hEN.addEventListener('click', function(){ document.getElementById('langEN').click(); hEN.classList.add('active'); hRU.classList.remove('active'); });
+  hRU.addEventListener('click', function(){ document.getElementById('langRU').click(); hRU.classList.add('active'); hEN.classList.remove('active'); });
+})();
+
+function fmt(n, sym) { return sym + n.toLocaleString('en', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+function updateResultLabels() {
+  const l = currentLang;
+  document.getElementById('resultsHeadline').textContent = l === 'ru' ? 'Разбивка вашей зарплаты:' : 'Your salary breakdown:';
+  document.getElementById('overtimeLabel').textContent = l === 'ru' ? 'Сверхурочные включены:' : 'Overtime included:';
+}
+
+document.getElementById('calcBtn').addEventListener('click', function() {
+  const rate = parseFloat(document.getElementById('hourlyRate').value);
+  const hours = parseFloat(document.getElementById('hoursPerWeek').value);
+  const weeks = parseFloat(document.getElementById('weeksPerYear').value);
+  const sym = document.getElementById('currency').value;
+  const otHours = parseFloat(document.getElementById('overtimeHours').value) || 0;
+  const otMult = parseFloat(document.getElementById('overtimeMultiplier').value);
+  const err = document.getElementById('calcError');
+
+  if (!rate || rate <= 0) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+
+  const regularWeekly = rate * hours;
+  const otWeekly = rate * otHours * otMult;
+  const weekly = regularWeekly + otWeekly;
+  const yearly = weekly * weeks;
+  const monthly = yearly / 12;
+  const daily = regularWeekly / (hours > 0 ? Math.min(hours / 8, 7) : 5);
+  const otYearly = otWeekly * weeks;
+
+  document.getElementById('yearlyDisplay').textContent = fmt(yearly, sym);
+  document.getElementById('weeklyDisplay').textContent = fmt(weekly, sym);
+  document.getElementById('monthlyDisplay').textContent = fmt(monthly, sym);
+  document.getElementById('dailyDisplay').textContent = fmt(daily, sym);
+
+  const otRow = document.getElementById('overtimeRow');
+  if (otHours > 0) {
+    otRow.style.display = 'block';
+    document.getElementById('overtimeAmount').textContent = fmt(otYearly, sym);
+  } else {
+    otRow.style.display = 'none';
+  }
+
+  updateResultLabels();
+  document.getElementById('calcResults').classList.add('visible');
+  setTimeout(() => document.getElementById('calcResults').scrollIntoView({behavior:'smooth',block:'start'}), 100);
+});
+</script>
+</body>
+</html>
