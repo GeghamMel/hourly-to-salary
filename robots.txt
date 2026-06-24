@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://hourlysalarycalc.com/sitemap.xml

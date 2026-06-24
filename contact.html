@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Use — Hourly Salary Calc</title>
+  <title>Contact — Hourly Salary Calc</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,29 +18,24 @@
     <div class="lang-toggle"><button class="active" id="langEN">EN</button><button id="langRU">RU</button></div>
   </nav>
 </div></header>
-<main><div class="static-body"><a href="/" class="back-link" data-en="← Back" data-ru="← Назад">← Back</a>
-<h1 data-en="Terms of Use" data-ru="Условия использования">Terms of Use</h1>
-<p class="intro" data-en="Last updated: June 2025" data-ru="Последнее обновление: июнь 2025">Last updated: June 2025</p>
-<div id="content-en">
-<p>By using hourlysalarycalc.com, you agree to these terms.</p>
-<h2>1. Informational Purpose Only</h2>
-<p>All content is for <strong>informational purposes only</strong>. Results show gross income before taxes and do not constitute financial, tax, or legal advice. Always consult a qualified professional before making financial decisions.</p>
-<h2>2. Accuracy</h2><p>We strive for accuracy but make no warranties about completeness or suitability for any purpose.</p>
-<h2>3. No Liability</h2><p>We are not liable for any damages arising from use of this site or reliance on its content.</p>
-<h2>4. Intellectual Property</h2><p>All content is owned by hourlysalarycalc.com. Reproduction without permission is prohibited.</p>
-<h2>5. Changes</h2><p>These terms may be updated. Continued use constitutes acceptance.</p>
-<h2>6. Contact</h2><p>Questions? Use our <a href="contact.html">contact form</a>.</p>
+<main><div class="static-body"><a href="/" class="back-link" data-en="← Back to Calculator" data-ru="← На калькулятор">← Back to Calculator</a>
+<h1 data-en="Contact Us" data-ru="Свяжитесь с нами">Contact Us</h1>
+<p class="intro" data-en="Have a question, found a bug, or want to suggest an improvement?" data-ru="Есть вопрос, нашли ошибку или хотите предложить улучшение?">Have a question, found a bug, or want to suggest an improvement?</p>
+<div id="formWrap">
+<form class="contact-form" id="contactForm" novalidate>
+  <div class="field"><label for="cname" data-en="Your name" data-ru="Ваше имя">Your name</label><input type="text" id="cname" placeholder="John Smith" /></div>
+  <div class="field"><label for="cemail" data-en="Email address" data-ru="Электронная почта">Email address</label><input type="email" id="cemail" placeholder="john@example.com" /></div>
+  <div class="field"><label for="csubject" data-en="Subject" data-ru="Тема">Subject</label>
+  <select id="csubject"><option value="" data-en="Select a topic…" data-ru="Выберите тему…">Select a topic…</option><option value="bug" data-en="Bug report" data-ru="Сообщение об ошибке">Bug report</option><option value="suggestion" data-en="Feature suggestion" data-ru="Предложение">Feature suggestion</option><option value="other" data-en="Other" data-ru="Другое">Other</option></select></div>
+  <div class="field"><label for="cmessage" data-en="Message" data-ru="Сообщение">Message</label><textarea id="cmessage" placeholder="Your message…"></textarea></div>
+  <p id="formError" style="color:#dc2626;font-size:0.85rem;margin-bottom:12px;display:none;" data-en="Please fill in all fields." data-ru="Заполните все поля.">Please fill in all fields.</p>
+  <button type="button" class="btn-submit" id="submitBtn" data-en="Send Message" data-ru="Отправить">Send Message</button>
+</form></div>
+<div id="formSuccess" style="display:none;background:var(--blue-light);border-radius:10px;padding:28px;margin-top:20px;">
+  <p style="font-weight:600;color:var(--blue);margin-bottom:8px;" data-en="✓ Message sent!" data-ru="✓ Сообщение отправлено!">✓ Message sent!</p>
+  <p style="color:var(--muted);font-size:0.9rem;" data-en="Thanks! We typically respond within 1–2 business days." data-ru="Спасибо! Обычно отвечаем в течение 1–2 рабочих дней.">Thanks! We typically respond within 1–2 business days.</p>
 </div>
-<div id="content-ru" style="display:none;">
-<p>Используя hourlysalarycalc.com, вы соглашаетесь с настоящими условиями.</p>
-<h2>1. Только информационные цели</h2>
-<p>Весь контент предназначен исключительно для <strong>информационных целей</strong>. Результаты показывают доход до налогов и не являются финансовой или налоговой консультацией.</p>
-<h2>2. Точность</h2><p>Мы стремимся к точности, но не даём гарантий полноты или пригодности для конкретных целей.</p>
-<h2>3. Ограничение ответственности</h2><p>Мы не несём ответственности за убытки, возникшие в результате использования сайта.</p>
-<h2>4. Интеллектуальная собственность</h2><p>Весь контент принадлежит hourlysalarycalc.com. Воспроизведение без разрешения запрещено.</p>
-<h2>5. Изменения</h2><p>Условия могут обновляться. Продолжение использования означает согласие.</p>
-<h2>6. Контакт</h2><p>Вопросы? <a href="contact.html">Напишите нам</a>.</p>
-</div></div></main>
+<script>document.getElementById('submitBtn').addEventListener('click',function(){var n=document.getElementById('cname').value.trim(),e=document.getElementById('cemail').value.trim(),s=document.getElementById('csubject').value,m=document.getElementById('cmessage').value.trim(),err=document.getElementById('formError');if(!n||!e||!s||!m||!e.includes('@')){err.style.display='block';return;}err.style.display='none';document.getElementById('formWrap').style.display='none';document.getElementById('formSuccess').style.display='block';});</script></div></main>
 <footer class="site-footer"><div class="footer-inner">
   <div class="footer-brand"><a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a><p data-en="Free salary calculator." data-ru="Бесплатный калькулятор зарплаты.">Free salary calculator.</p></div>
   <div class="footer-links"><a href="about.html" data-en="About" data-ru="О сайте">About</a><a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a><a href="privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Privacy Policy</a><a href="terms.html" data-en="Terms of Use" data-ru="Условия использования">Terms of Use</a></div>
