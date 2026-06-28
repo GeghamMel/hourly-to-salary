@@ -99,6 +99,11 @@ ul, ol { padding-left: 20px; }
   font-size: 0.9rem; font-weight: 500;
 }
 .nav-item > a:hover { color: white !important; text-decoration: none !important; }
+.site-nav .nav-item > a {
+  color: rgba(255,255,255,0.85) !important;
+  text-decoration: none !important;
+}
+.site-nav .nav-item > a:hover { color: white !important; }
 .nav-item > a::after { content:'▾'; font-size:0.65rem; opacity:0.7; }
 .nav-item > a.mm-open::after { content:'▴'; }
 
@@ -398,6 +403,7 @@ ul, ol { padding-left: 20px; }
   }
   .site-nav.open { display: flex; }
   .site-nav > a { font-size: 1.1rem; color: white; }
+  .site-nav .nav-item > a { font-size: 1.1rem; color: white !important; text-decoration: none !important; }
   .hamburger { display: flex; }
   .header-lang { display: flex; }
   .lang-toggle { display: none; }
