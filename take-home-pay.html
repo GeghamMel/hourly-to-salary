@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Take Home Pay Calculator — Net Salary After Deductions | Hourly Salary Calc</title>
+  <meta name="description" content="Calculate your take-home pay after tax, National Insurance, pension, and other deductions. Free net salary calculator." />
+  <link rel="canonical" href="https://hourlysalarycalc.com/take-home-pay.html" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6528076410139599" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25RBMQWB19"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-25RBMQWB19');</script>
+  <meta property="og:title" content="Take Home Pay Calculator — Net Salary After Deductions | Hourly Salary Calc" />
+  <meta property="og:description" content="Calculate your take-home pay after tax, National Insurance, pension, and other deductions. Free net salary calculator." />
+  <meta property="og:image" content="https://hourlysalarycalc.com/og-image.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a href="/" class="site-logo"><span class="logo-icon">💰</span> Hourly Salary Calc</a>
+    <a href="search.html" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);color:white;text-decoration:none;font-size:1rem;flex-shrink:0;">🔍</a>
+    <div class="header-lang" id="headerLang">
+      <button class="active" id="headerLangEN">EN</button>
+      <button id="headerLangRU">RU</button>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="siteNav">
+      <div class="nav-item">
+        <a href="all-calculators.html" data-en="Calculators" data-ru="Калькуляторы">Calculators</a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid-3">
+            <div class="mega-menu-title">All Calculators</div>
+            <a href="/" class="mega-menu-item"><span class="mm-icon">💰</span><span class="mm-text" data-en="Hourly to Salary" data-ru="Почасовая в годовую">Hourly to Salary</span></a>
+            <a href="tax-calculator.html" class="mega-menu-item"><span class="mm-icon">🧾</span><span class="mm-text" data-en="Tax Calculator" data-ru="Налоговый калькулятор">Tax Calculator</span></a>
+            <a href="take-home-pay.html" class="mega-menu-item"><span class="mm-icon">🏠</span><span class="mm-text" data-en="Take Home Pay" data-ru="Зарплата на руки">Take Home Pay</span></a>
+            <a href="freelance-rate-calculator.html" class="mega-menu-item"><span class="mm-icon">💻</span><span class="mm-text" data-en="Freelance Rate" data-ru="Ставка фрилансера">Freelance Rate</span></a>
+            <a href="salary-comparison.html" class="mega-menu-item"><span class="mm-icon">⚖️</span><span class="mm-text" data-en="Salary Comparison" data-ru="Сравнение зарплат">Salary Comparison</span></a>
+            <a href="overtime-calculator.html" class="mega-menu-item"><span class="mm-icon">⏰</span><span class="mm-text" data-en="Overtime Calculator" data-ru="Калькулятор переработок">Overtime Calculator</span></a>
+            <a href="annual-to-monthly.html" class="mega-menu-item"><span class="mm-icon">📅</span><span class="mm-text" data-en="Annual to Monthly" data-ru="Годовая в месячную">Annual to Monthly</span></a>
+            <a href="salary-by-profession.html" class="mega-menu-item"><span class="mm-icon">👔</span><span class="mm-text" data-en="Salary by Profession" data-ru="Зарплата по профессиям">Salary by Profession</span></a>
+            <div class="mega-menu-footer"><a href="all-calculators.html" data-en="View all →" data-ru="Все →">View all →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="blog/" data-en="Blog" data-ru="Блог">Blog</a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid">
+            <div class="mega-menu-title">Popular Articles</div>
+            <a href="blog/hourly-to-salary.html" class="mega-menu-item"><span class="mm-icon">💰</span><span class="mm-text" data-en="Hourly to Salary Guide" data-ru="Почасовая в годовую">Hourly to Salary Guide</span></a>
+            <a href="blog/freelance-hourly-rate.html" class="mega-menu-item"><span class="mm-icon">💻</span><span class="mm-text" data-en="Freelance Hourly Rate" data-ru="Ставка фрилансера">Freelance Hourly Rate</span></a>
+            <a href="blog/gross-vs-net-salary.html" class="mega-menu-item"><span class="mm-icon">📊</span><span class="mm-text" data-en="Gross vs Net Salary" data-ru="Брутто vs нетто">Gross vs Net Salary</span></a>
+            <a href="blog/negotiate-salary.html" class="mega-menu-item"><span class="mm-icon">🤝</span><span class="mm-text" data-en="How to Negotiate Salary" data-ru="Как торговаться">How to Negotiate Salary</span></a>
+            <a href="blog/overtime-pay.html" class="mega-menu-item"><span class="mm-icon">⏰</span><span class="mm-text" data-en="Overtime Pay Guide" data-ru="Переработки">Overtime Pay Guide</span></a>
+            <a href="blog/remote-work-salary.html" class="mega-menu-item"><span class="mm-icon">🏠</span><span class="mm-text" data-en="Remote Work Salary" data-ru="Удалённая работа">Remote Work Salary</span></a>
+            <a href="blog/average-salary-by-country.html" class="mega-menu-item"><span class="mm-icon">🌍</span><span class="mm-text" data-en="Average Salary by Country" data-ru="Средняя зарплата">Average Salary</span></a>
+            <a href="blog/salary-raise-guide.html" class="mega-menu-item"><span class="mm-icon">📈</span><span class="mm-text" data-en="How to Get a Raise" data-ru="Как получить повышение">How to Get a Raise</span></a>
+            <div class="mega-menu-footer"><a href="blog/" data-en="View all →" data-ru="Все статьи →">View all →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="all-calculators.html" data-en="Tools" data-ru="Инструменты">Tools</a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid">
+            <div class="mega-menu-title">Tools & Reference</div>
+            <a href="salary-by-profession.html" class="mega-menu-item"><span class="mm-icon">👔</span><span class="mm-text" data-en="Salary by Profession" data-ru="Зарплаты по профессиям">Salary by Profession</span></a>
+            <a href="search.html" class="mega-menu-item"><span class="mm-icon">🔍</span><span class="mm-text" data-en="Search" data-ru="Поиск">Search</span></a>
+            <a href="faq.html" class="mega-menu-item"><span class="mm-icon">❓</span><span class="mm-text">FAQ</span></a>
+            <a href="about.html" class="mega-menu-item"><span class="mm-icon">ℹ️</span><span class="mm-text" data-en="About" data-ru="О сайте">About</span></a>
+            <div class="mega-menu-footer"><a href="all-calculators.html" data-en="View all →" data-ru="Все →">View all →</a></div>
+          </div>
+        </div>
+      </div>
+      <a href="about.html" data-en="About" data-ru="О сайте">About</a>
+      <a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
+      <div class="lang-toggle"><button class="active" id="langEN">EN</button><button id="langRU">RU</button></div>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-en="Free Calculator" data-ru="Бесплатный калькулятор">Free Calculator</div>
+    <h1 data-en="Take Home Pay <em>Calculator</em>" data-ru="Калькулятор <em>зарплаты на руки</em>">Take Home Pay <em>Calculator</em></h1>
+    <p data-en="Calculate your actual take-home pay after income tax, social security, pension contributions, and other deductions." data-ru="Рассчитайте реальную зарплату после подоходного налога, социального страхования, пенсионных взносов и других вычетов.">Calculate your actual take-home pay after income tax, social security, pension contributions, and other deductions.</p>
+    <a href="#calculator" class="btn-scroll" data-en="Calculate Now ↓" data-ru="Рассчитать ↓">Calculate Now ↓</a>
+  </div>
+</section>
+
+<section class="calc-section" id="calculator">
+  <div class="container">
+    <div class="calc-card">
+      
+      <div class="calc-grid">
+        <div class="field"><label data-en="Gross Annual Salary" data-ru="Валовая годовая зарплата">Gross Annual Salary</label><input type="number" id="gross" placeholder="e.g. 55000" /></div>
+        <div class="field"><label data-en="Currency" data-ru="Валюта">Currency</label><select id="curr"><option value="$">$ USD</option><option value="£">£ GBP</option><option value="€">€ EUR</option><option value="C$">C$ CAD</option></select></div>
+        <div class="field"><label data-en="Income Tax Rate (%)" data-ru="Ставка налога (%)">Income Tax Rate (%)</label><input type="number" id="taxRate" value="22" min="0" max="60" /></div>
+        <div class="field"><label data-en="Social Security / NI (%)" data-ru="Социальный налог (%)">Social Security / NI (%)</label><input type="number" id="ssRate" value="6.2" min="0" max="30" /></div>
+        <div class="field"><label data-en="Pension Contribution (%)" data-ru="Пенсионный взнос (%)">Pension Contribution (%)</label><input type="number" id="pensionRate" value="5" min="0" max="50" /></div>
+        <div class="field"><label data-en="Other Deductions ($/year)" data-ru="Другие вычеты ($/год)">Other Deductions ($/year)</label><input type="number" id="other" value="0" min="0" /></div>
+      </div>
+      <button class="btn-calc" onclick="calculate()" data-en="Calculate Take-Home Pay →" data-ru="Рассчитать зарплату на руки →">Calculate Take-Home Pay →</button>
+      <div id="results" style="display:none;margin-top:28px;border-top:1px solid var(--border);padding-top:28px;">
+        <div class="result-display">
+          <div class="result-number" id="netAnnual">—</div>
+          <div class="result-label" data-en="annual take-home pay" data-ru="годовая зарплата на руки">annual take-home pay</div>
+        </div>
+        <div class="results-grid">
+          <div class="result-item"><div class="val" id="netMonthly">—</div><div class="lbl" data-en="Monthly" data-ru="В месяц">Monthly</div></div>
+          <div class="result-item"><div class="val" id="totalDeductions">—</div><div class="lbl" data-en="Total Deductions" data-ru="Всего вычетов">Total Deductions</div></div>
+          <div class="result-item"><div class="val" id="keepPct">—</div><div class="lbl" data-en="You Keep" data-ru="Вы получаете">You Keep</div></div>
+        </div>
+        <div class="result-note" id="resultNote"></div>
+      </div>
+      <script>
+      function calculate(){
+        var gross=parseFloat(document.getElementById('gross').value);
+        var curr=document.getElementById('curr').value;
+        var tax=parseFloat(document.getElementById('taxRate').value)||0;
+        var ss=parseFloat(document.getElementById('ssRate').value)||0;
+        var pension=parseFloat(document.getElementById('pensionRate').value)||0;
+        var other=parseFloat(document.getElementById('other').value)||0;
+        var l=cl;
+        if(!gross||gross<=0)return;
+        var taxAmt=gross*tax/100;
+        var ssAmt=gross*ss/100;
+        var pensionAmt=gross*pension/100;
+        var totalDed=taxAmt+ssAmt+pensionAmt+other;
+        var net=gross-totalDed;
+        var keepPct=(net/gross*100).toFixed(1);
+        var fmt=function(n){return curr+Math.round(n).toLocaleString();};
+        document.getElementById('netAnnual').textContent=fmt(net);
+        document.getElementById('netMonthly').textContent=fmt(net/12);
+        document.getElementById('totalDeductions').textContent=fmt(totalDed);
+        document.getElementById('keepPct').textContent=keepPct+'%';
+        var note_en='From '+fmt(gross)+' gross: tax '+fmt(taxAmt)+', social '+fmt(ssAmt)+', pension '+fmt(pensionAmt)+', other '+fmt(other)+'. Net: '+fmt(net)+'/year.';
+        var note_ru='Из '+fmt(gross)+' брутто: налог '+fmt(taxAmt)+', соц. налог '+fmt(ssAmt)+', пенсия '+fmt(pensionAmt)+', прочее '+fmt(other)+'. Нетто: '+fmt(net)+'/год.';
+        document.getElementById('resultNote').textContent=l==='ru'?note_ru:note_en;
+        document.getElementById('results').style.display='block';
+        document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      </script>
+    </div>
+  </div>
+</section>
+
+<section class="blog-section" style="background:white;">
+  <div class="container">
+    <div class="section-label" data-en="Related Tools" data-ru="Связанные инструменты">Related Tools</div>
+    <h2 class="section-title" data-en="More Salary Calculators" data-ru="Другие калькуляторы зарплаты">More Salary Calculators</h2>
+    <div class="blog-grid">
+      <a href="/" class="blog-card"><div class="blog-card-body"><span class="blog-tag">Salary</span><h3 data-en="Hourly to Annual Salary" data-ru="Почасовая в годовую">Hourly to Annual Salary</h3><p data-en="Convert hourly wage to annual salary." data-ru="Конвертируйте почасовую ставку в годовую зарплату.">Convert hourly to annual.</p><span class="blog-read-more">Open →</span></div></a>
+      <a href="tax-calculator.html" class="blog-card"><div class="blog-card-body"><span class="blog-tag">Tax</span><h3 data-en="Income Tax Calculator" data-ru="Калькулятор налогов">Income Tax Calculator</h3><p data-en="Estimate your tax and net income." data-ru="Рассчитайте налог и чистый доход.">Estimate your tax.</p><span class="blog-read-more">Open →</span></div></a>
+      <a href="all-calculators.html" class="blog-card"><div class="blog-card-body"><span class="blog-tag">All Tools</span><h3 data-en="All Calculators" data-ru="Все калькуляторы">All Calculators</h3><p data-en="View all free salary tools." data-ru="Все бесплатные калькуляторы.">View all free tools.</p><span class="blog-read-more">Open →</span></div></a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="site-logo"><span class="logo-icon">💰</span> Hourly Salary Calc</a>
+      <p data-en="Free salary calculators. Not financial advice." data-ru="Бесплатные калькуляторы зарплаты. Не финансовый совет.">Free salary calculators. Not financial advice.</p>
+    </div>
+    <div class="footer-links">
+      <a href="all-calculators.html" data-en="All Calculators" data-ru="Все калькуляторы">All Calculators</a>
+      <a href="blog/" data-en="Blog" data-ru="Блог">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html" data-en="About" data-ru="О сайте">About</a>
+      <a href="contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
+      <a href="privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Privacy Policy</a>
+      <a href="terms.html" data-en="Terms" data-ru="Условия">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> hourlysalarycalc.com</span></div>
+</footer>
+<div id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="readProgress"></div>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+window.addEventListener('scroll',function(){
+  var s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('readProgress').style.width=(d>0?s/d*100:0)+'%';
+  document.getElementById('scrollTop').style.display=s>400?'flex':'none';
+});
+var cl=localStorage.getItem('lang')||'en';
+function applyLang(l){
+  cl=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var t=el.getAttribute('data-'+l);
+    if(!t)return;
+    if(el.querySelector('em')||t.includes('<'))el.innerHTML=t;
+    else el.textContent=t;
+  });
+  document.querySelectorAll('select option[data-en]').forEach(function(o){
+    var t=o.getAttribute('data-'+l);if(t){var v=o.value;o.textContent=t;o.value=v;}
+  });
+  localStorage.setItem('lang',l);
+}
+document.getElementById('langEN').addEventListener('click',function(){this.classList.add('active');document.getElementById('langRU').classList.remove('active');applyLang('en');});
+document.getElementById('langRU').addEventListener('click',function(){this.classList.add('active');document.getElementById('langEN').classList.remove('active');applyLang('ru');});
+var hEN=document.getElementById('headerLangEN'),hRU=document.getElementById('headerLangRU');
+hEN.addEventListener('click',function(){document.getElementById('langEN').click();hEN.classList.add('active');hRU.classList.remove('active');});
+hRU.addEventListener('click',function(){document.getElementById('langRU').click();hRU.classList.add('active');hEN.classList.remove('active');});
+if(cl==='ru'){document.getElementById('langRU').classList.add('active');document.getElementById('langEN').classList.remove('active');if(hRU){hRU.classList.add('active');hEN.classList.remove('active');}applyLang('ru');}
+/* Mega menu */
+(function(){
+  var hbtn=document.getElementById('hamburger'),nav=document.getElementById('siteNav');
+  if(hbtn&&nav)hbtn.addEventListener('click',function(e){e.stopPropagation();nav.classList.toggle('open');});
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.nav-item > a').forEach(function(link){
+      link.addEventListener('click',function(e){
+        if(window.innerWidth>=769)return;
+        var menu=this.closest('.nav-item').querySelector('.mega-menu');
+        if(!menu)return;
+        e.preventDefault();e.stopPropagation();
+        var isOpen=menu.classList.contains('open');
+        document.querySelectorAll('.mega-menu').forEach(function(m){m.classList.remove('open');});
+        document.querySelectorAll('.nav-item > a').forEach(function(a){a.classList.remove('mm-open');});
+        if(!isOpen){menu.classList.add('open');this.classList.add('mm-open');}
+      }.bind(link));
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('#siteNav')){
+        if(nav)nav.classList.remove('open');
+        document.querySelectorAll('.mega-menu').forEach(function(m){m.classList.remove('open');});
+        document.querySelectorAll('.nav-item > a').forEach(function(a){a.classList.remove('mm-open');});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,123 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Salary Blog — Hourly Salary Calc</title>
-  <meta name="description" content="Practical guides on salary, hourly rates, overtime, and negotiation." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salary & Career Blog — Hourly Salary Calc</title>
+  <meta name="description" content="Salary guides, career tips, and financial advice — hourly to annual conversion, negotiation, freelance rates, overtime pay and more." />
   <link rel="canonical" href="https://hourlysalarycalc.com/blog/" />
-  <link rel="stylesheet" href="../style.css" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6528076410139599" crossorigin="anonymous"></script>
-<!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-25RBMQWB19"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-25RBMQWB19');
-  </script>
-  <link rel="alternate" hreflang="en" href="https://hourlysalarycalc.com/blog/" />
-  <link rel="alternate" hreflang="ru" href="https://hourlysalarycalc.com/blog/" />
-  <link rel="alternate" hreflang="x-default" href="https://hourlysalarycalc.com/blog/" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Hourly to Salary Calculator — Free Salary Converter" />
-  <meta property="og:description" content="Convert your hourly rate to annual salary instantly. Free calculator with overtime, multiple currencies, and custom schedules." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hourlysalarycalc.com/" />
-  <meta property="og:image" content="https://hourlysalarycalc.com/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Hourly Salary Calc" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Hourly to Salary Calculator — Free Salary Converter" />
-  <meta name="twitter:description" content="Convert your hourly rate to annual salary instantly. Free calculator with overtime, multiple currencies, and custom schedules." />
-  <meta name="twitter:image" content="https://hourlysalarycalc.com/og-image.png" />
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-25RBMQWB19');</script>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-<header class="site-header"><div class="inner">
-  <a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a>
-  <div class="header-lang" id="headerLang"><button class="active" id="headerLangEN">EN</button><button id="headerLangRU">RU</button></div>
-  <button class="hamburger" aria-label="Open menu" id="hamburger"><span></span><span></span><span></span></button>
-  <nav class="site-nav" id="siteNav">
-    <a href="/" data-en="Calculator" data-ru="Калькулятор">Calculator</a>
-    <a href="/blog/" class="active" data-en="Blog" data-ru="Блог">Blog</a>
-    <a href="/about.html" data-en="About" data-ru="О сайте">About</a>
-    <a href="/contact.html" data-en="Contact" data-ru="Контакт">Contact</a>
-    <div class="lang-toggle"><button class="active" id="langEN">EN</button><button id="langRU">RU</button></div>
-  </nav>
-</div></header>
-<main>
-  <div class="blog-header container">
-    <a href="/" class="back-link" data-en="← Back to Calculator" data-ru="← На калькулятор">← Back to Calculator</a>
-    <div class="section-label" style="margin-top:16px;" data-en="Knowledge base" data-ru="База знаний">Knowledge base</div>
-    <h1 class="section-title" style="margin-bottom:8px;" data-en="Salary Guides" data-ru="Гиды по зарплате">Salary Guides</h1>
-    <p class="section-sub" data-en="Practical articles on salary, hourly rates, overtime, and negotiation." data-ru="Практические статьи о зарплате, почасовых ставках, сверхурочных и переговорах.">Practical articles on salary, hourly rates, overtime, and negotiation.</p>
+<header class="site-header">
+  <div class="inner">
+    <a href="/" class="site-logo"><span class="logo-icon">💰</span> Hourly Salary Calc</a>
+    <a href="../search.html" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);color:white;text-decoration:none;font-size:1rem;flex-shrink:0;">🔍</a>
+    <div class="header-lang" id="headerLang"><button class="active" id="headerLangEN">EN</button><button id="headerLangRU">RU</button></div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="siteNav">
+      <a href="/" data-en="Calculator" data-ru="Калькулятор">Calculator</a>
+      <a href="/blog/" class="active" data-en="Blog" data-ru="Блог">Blog</a>
+      <a href="/all-calculators.html" data-en="All Tools" data-ru="Все инструменты">All Tools</a>
+      <a href="/about.html" data-en="About" data-ru="О сайте">About</a>
+      <div class="lang-toggle"><button class="active" id="langEN">EN</button><button id="langRU">RU</button></div>
+    </nav>
   </div>
-  <div class="blog-listing container">
-    <div class="blog-grid">
-      <a href="hourly-to-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Salary" data-ru="Зарплата">Salary</span><h3 data-en="How to Convert Hourly Rate to Annual Salary" data-ru="Как перевести почасовую ставку в годовую зарплату">How to Convert Hourly Rate to Annual Salary</h3><p data-en="The complete guide to salary conversion — formulas, examples, and common mistakes." data-ru="Полное руководство по расчёту зарплаты — формулы, примеры и ошибки.">The complete guide to salary conversion — formulas, examples, and common mistakes.</p><span class="blog-read-more" data-en="Read →" data-ru="Читать →">Read →</span></div></a>
-      <a href="negotiate-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Negotiation" data-ru="Переговоры">Negotiation</span><h3 data-en="How to Negotiate Your Salary: A Practical Guide" data-ru="Как договориться о зарплате: практическое руководство">How to Negotiate Your Salary: A Practical Guide</h3><p data-en="Step-by-step advice on negotiating a higher salary or hourly rate." data-ru="Пошаговые советы по переговорам о зарплате.">Step-by-step advice on negotiating a higher salary or hourly rate.</p><span class="blog-read-more" data-en="Read →" data-ru="Читать →">Read →</span></div></a>
-      <a href="freelance-hourly-rate.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Freelance" data-ru="Фриланс">Freelance</span><h3 data-en="How to Set Your Freelance Hourly Rate" data-ru="Как установить почасовую ставку фрилансера">How to Set Your Freelance Hourly Rate</h3><p data-en="Calculate a rate that covers expenses, taxes, and desired income." data-ru="Рассчитайте ставку, покрывающую расходы, налоги и желаемый доход.">Calculate a rate that covers expenses, taxes, and desired income.</p><span class="blog-read-more" data-en="Read →" data-ru="Читать →">Read →</span></div></a>
-      <a href="gross-vs-net-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Taxes" data-ru="Налоги">Taxes</span><h3 data-en="Gross vs Net Salary: What's the Difference?" data-ru="Зарплата до и после налогов: в чём разница?">Gross vs Net Salary: What's the Difference?</h3><p data-en="Understand what deductions reduce your take-home pay." data-ru="Что уменьшает вашу зарплату на руки.">Understand what deductions reduce your take-home pay.</p><span class="blog-read-more" data-en="Read →" data-ru="Читать →">Read →</span></div></a>
-      <a href="overtime-pay.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Overtime" data-ru="Сверхурочные">Overtime</span><h3 data-en="How Overtime Pay Works: Rules and Calculations" data-ru="Как работают сверхурочные: правила и расчёты">How Overtime Pay Works: Rules and Calculations</h3><p data-en="Overtime rates, eligibility, and how to calculate your overtime earnings." data-ru="Ставки, право на сверхурочные и как рассчитать заработок.">Overtime rates, eligibility, and how to calculate your overtime earnings.</p><span class="blog-read-more" data-en="Read →" data-ru="Читать →">Read →</span></div></a>
+</header>
+<div class="page-hero">
+  <div class="container">
+    <h1 data-en="Salary & Career Blog" data-ru="Блог о зарплате и карьере">Salary & Career Blog</h1>
+    <p class="meta" data-en="Guides on salary conversion, negotiation, freelance rates, taxes, and career growth." data-ru="Руководства по конвертации зарплаты, переговорам, ставкам фрилансера, налогам и карьерному росту.">Guides on salary, negotiation, freelance, and career.</p>
+  </div>
+</div>
+<main>
+  <section style="padding:48px 20px 80px;background:var(--cream);">
+    <div class="container">
+      <div class="blog-grid">
+      <a href="hourly-to-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Guide" data-ru="Гид">Guide</span><h3 data-en="Hourly to Annual Salary: Complete Guide" data-ru="Почасовая в годовую: полное руководство">Hourly to Annual Salary: Complete Guide</h3><p data-en="Everything about converting hourly wages to annual salary." data-ru="Всё о конвертации почасовой ставки в годовую зарплату.">Everything about converting hourly wages to annual salary.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="freelance-hourly-rate.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Freelance" data-ru="Фриланс">Freelance</span><h3 data-en="How to Set Your Freelance Hourly Rate" data-ru="Как установить ставку фрилансера">How to Set Your Freelance Hourly Rate</h3><p data-en="A complete guide to setting a profitable freelance rate." data-ru="Полное руководство по установке прибыльной ставки.">A complete guide to setting a profitable freelance rate.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="gross-vs-net-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Finance" data-ru="Финансы">Finance</span><h3 data-en="Gross vs Net Salary: What's the Difference?" data-ru="Брутто vs нетто: в чём разница?">Gross vs Net Salary: What's the Difference?</h3><p data-en="Understanding the difference between gross and net salary." data-ru="Разница между зарплатой до и после налогов.">Understanding the difference between gross and net salary.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="negotiate-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Career" data-ru="Карьера">Career</span><h3 data-en="How to Negotiate Your Salary" data-ru="Как торговаться о зарплате">How to Negotiate Your Salary</h3><p data-en="Proven strategies to negotiate a higher salary." data-ru="Проверенные стратегии для переговоров о зарплате.">Proven strategies to negotiate a higher salary.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="overtime-pay.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Guide" data-ru="Гид">Guide</span><h3 data-en="Overtime Pay: Complete Guide" data-ru="Переработки: полное руководство">Overtime Pay: Complete Guide</h3><p data-en="How overtime pay works and how to calculate it." data-ru="Как работает оплата переработок и как её рассчитать.">How overtime pay works and how to calculate it.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="remote-work-salary.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Career" data-ru="Карьера">Career</span><h3 data-en="Remote Work Salary: What You Need to Know" data-ru="Зарплата на удалёнке">Remote Work Salary: What You Need to Know</h3><p data-en="How remote work affects your salary and what to negotiate." data-ru="Как удалёнка влияет на зарплату и что требовать.">How remote work affects your salary and what to negotiate.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="average-salary-by-country.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Reference" data-ru="Справочник">Reference</span><h3 data-en="Average Salary by Country 2024" data-ru="Средняя зарплата по странам 2024">Average Salary by Country 2024</h3><p data-en="Average annual salaries worldwide for 2024." data-ru="Средние годовые зарплаты в мире на 2024 год.">Average annual salaries worldwide for 2024.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="salary-raise-guide.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Career" data-ru="Карьера">Career</span><h3 data-en="How to Get a Salary Raise" data-ru="Как получить повышение зарплаты">How to Get a Salary Raise</h3><p data-en="Step-by-step guide to asking for and getting a raise." data-ru="Пошаговое руководство по получению повышения.">Step-by-step guide to asking for and getting a raise.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="contract-vs-employee.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Career" data-ru="Карьера">Career</span><h3 data-en="Contractor vs Employee: Financial Comparison" data-ru="Контрактник vs сотрудник">Contractor vs Employee: Financial Comparison</h3><p data-en="Full financial comparison of contracting vs employment." data-ru="Полное финансовое сравнение контракта и найма.">Full financial comparison of contracting vs employment.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="salary-benefits-guide.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Finance" data-ru="Финансы">Finance</span><h3 data-en="Employee Benefits Guide" data-ru="Руководство по льготам сотрудника">Employee Benefits Guide</h3><p data-en="How to calculate the real value of a benefits package." data-ru="Как рассчитать реальную ценность пакета льгот.">How to calculate the real value of a benefits package.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="minimum-wage-guide.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Reference" data-ru="Справочник">Reference</span><h3 data-en="Minimum Wage Guide 2024" data-ru="Минимальная зарплата по странам 2024">Minimum Wage Guide 2024</h3><p data-en="Minimum wage rates by country for 2024." data-ru="Минимальные ставки зарплаты по странам мира.">Minimum wage rates by country for 2024.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      <a href="part-time-to-full-time.html" class="blog-card" style="text-decoration:none;color:inherit;"><div class="blog-card-body"><span class="blog-tag" data-en="Guide" data-ru="Гид">Guide</span><h3 data-en="Part-Time to Full-Time Salary Guide" data-ru="Неполная в полную занятость">Part-Time to Full-Time Salary Guide</h3><p data-en="How to convert part-time income to full-time equivalent." data-ru="Как конвертировать неполную занятость в полную.">How to convert part-time income to full-time equivalent.</p><span class="blog-read-more" data-en="Read article →" data-ru="Читать →">Read article →</span></div></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="site-logo"><span class="logo-icon">💰</span> Hourly Salary Calc</a></div>
+    <div class="footer-links">
+      <a href="/all-calculators.html" data-en="All Calculators" data-ru="Все калькуляторы">All Calculators</a>
+      <a href="/blog/" data-en="Blog" data-ru="Блог">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html" data-en="Privacy" data-ru="Политика">Privacy</a>
     </div>
   </div>
-</main><footer class="site-footer"><div class="footer-inner">
-  <div class="footer-brand"><a href="/" class="site-logo"><span class="logo-icon">💼</span> Hourly Salary Calc</a><p data-en="Free salary calculator. Estimates only." data-ru="Бесплатный калькулятор зарплаты. Только оценки.">Free salary calculator. Estimates only.</p></div>
-  <div class="footer-links"><a href="/about.html" data-en="About" data-ru="О сайте">About</a><a href="/blog/" data-en="Blog" data-ru="Блог">Blog</a><a href="/contact.html" data-en="Contact" data-ru="Контакт">Contact</a><a href="/privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности">Privacy Policy</a><a href="/terms.html" data-en="Terms of Use" data-ru="Условия использования">Terms of Use</a></div>
-</div><div class="footer-bottom"><span>© <span id="year"></span> hourlysalarycalc.com</span></div></footer>
+  <div class="footer-bottom"><span>© <span id="year"></span> hourlysalarycalc.com</span></div>
+</footer>
+<div id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div id="readProgress"></div>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('hamburger').addEventListener('click', function() { document.getElementById('siteNav').classList.toggle('open'); });
-
-let currentLang = 'en';
-function applyLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-en]').forEach(function(el) {
-    var t = el.getAttribute('data-' + lang);
-    if (t) el.innerHTML = t;
-  });
-  localStorage.setItem('lang', lang);
-}
-document.getElementById('langEN').addEventListener('click', function() {
-  this.classList.add('active'); document.getElementById('langRU').classList.remove('active'); applyLang('en');
-});
-document.getElementById('langRU').addEventListener('click', function() {
-  this.classList.add('active'); document.getElementById('langEN').classList.remove('active'); applyLang('ru');
-});
-var sl = localStorage.getItem('lang');
-if (sl === 'ru') { document.getElementById('langRU').classList.add('active'); document.getElementById('langEN').classList.remove('active'); applyLang('ru'); }
-(function(){
-  var hEN = document.getElementById('headerLangEN'), hRU = document.getElementById('headerLangRU');
-  if (sl === 'ru') { hRU.classList.add('active'); hEN.classList.remove('active'); }
-  hEN.addEventListener('click', function(){ document.getElementById('langEN').click(); hEN.classList.add('active'); hRU.classList.remove('active'); });
-  hRU.addEventListener('click', function(){ document.getElementById('langRU').click(); hRU.classList.add('active'); hEN.classList.remove('active'); });
-})();
-</script>
-
-<!-- Scroll to top button + Reading progress -->
-<div id="scrollTop" style="display:none;position:fixed;bottom:28px;right:24px;z-index:999;width:44px;height:44px;background:var(--green,#2D6A4F);color:white;border-radius:50%;border:none;cursor:pointer;font-size:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.2);align-items:center;justify-content:center;transition:opacity 0.3s,transform 0.3s;" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-<div id="readProgress" style="position:fixed;top:0;left:0;height:3px;background:var(--green,#2D6A4F);width:0%;z-index:9999;transition:width 0.1s;"></div>
-<script>
-(function(){
-  var btn = document.getElementById('scrollTop');
-  var bar = document.getElementById('readProgress');
-  window.addEventListener('scroll', function(){
-    var scrollY = window.scrollY || window.pageYOffset;
-    var docH = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = docH > 0 ? (scrollY / docH * 100) : 0;
-    bar.style.width = pct + '%';
-    if (scrollY > 400) {
-      btn.style.display = 'flex';
-      btn.style.opacity = '1';
-    } else {
-      btn.style.display = 'none';
-    }
-  });
-  btn.addEventListener('mouseenter', function(){ this.style.transform='scale(1.1)'; });
-  btn.addEventListener('mouseleave', function(){ this.style.transform='scale(1)'; });
-})();
+document.getElementById('year').textContent=new Date().getFullYear();
+window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('readProgress').style.width=(d>0?s/d*100:0)+'%';document.getElementById('scrollTop').style.display=s>400?'flex':'none';});
+var cl=localStorage.getItem('lang')||'en';
+function applyLang(l){cl=l;document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(el){var t=el.getAttribute('data-'+l);if(t)el.innerHTML=t;});localStorage.setItem('lang',l);}
+document.getElementById('langEN').addEventListener('click',function(){this.classList.add('active');document.getElementById('langRU').classList.remove('active');applyLang('en');});
+document.getElementById('langRU').addEventListener('click',function(){this.classList.add('active');document.getElementById('langEN').classList.remove('active');applyLang('ru');});
+if(cl==='ru'){document.getElementById('langRU').classList.add('active');document.getElementById('langEN').classList.remove('active');applyLang('ru');}
+document.getElementById('hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('siteNav').classList.toggle('open');});
 </script>
 </body>
 </html>
