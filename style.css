@@ -92,7 +92,13 @@ ul, ol { padding-left: 20px; }
 
 /* ===== MEGA MENU ===== */
 .nav-item { position: relative; }
-.nav-item > a { display:flex; align-items:center; gap:4px; cursor:pointer; }
+.nav-item > a {
+  display:flex; align-items:center; gap:4px; cursor:pointer;
+  color: rgba(255,255,255,0.85) !important;
+  text-decoration: none !important;
+  font-size: 0.9rem; font-weight: 500;
+}
+.nav-item > a:hover { color: white !important; text-decoration: none !important; }
 .nav-item > a::after { content:'▾'; font-size:0.65rem; opacity:0.7; }
 .nav-item > a.mm-open::after { content:'▴'; }
 
